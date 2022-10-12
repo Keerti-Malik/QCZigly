@@ -1,10 +1,17 @@
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
 import org.testng.annotations.Test;
@@ -14,22 +21,21 @@ public class BookGroomingAtHome {
 	JavascriptExecutor js = null;
 
 	@Test(invocationCount = 1)
-	public void navigatetourl(ITestContext context) throws InterruptedException {
+	public void navigatetourl() throws InterruptedException {
 		try {
-			int count = context.getAllTestMethods()[0].getCurrentInvocationCount();
-			// System.out.println(count);
+
 			System.setProperty("webdriver.chrome.driver", "E:\\chromedriver\\chromedriver.exe");
 			driver = new ChromeDriver();
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 			js = (JavascriptExecutor) driver;
-			String baseUrl = "https://qc.zigly.com/";
+			String baseUrl = "https://preprod.zigly.com/";
 			driver.get(baseUrl);
 			Thread.sleep(2000);
 			driver.manage().window().maximize();
 
-			driver.findElement(By.xpath("//*[@id=\"html-body\"]/div[3]/header/div[3]/div[1]/ul/li[1]/a")).click();
+			driver.findElement(By.xpath("//*[@id=\"html-body\"]/div[4]/header/div[3]/div[1]/ul/li[1]/a")).click();
 			WebElement button = wait.until(ExpectedConditions.visibilityOfElementLocated(
-					By.xpath("//*[@id=\"html-body\"]/div[3]/header/div[3]/div[1]/ul/li[1]/div/ul/li[1]")));
+					By.xpath("//*[@id=\"html-body\"]/div[4]/header/div[3]/div[1]/ul/li[1]/div/ul/li[1]")));
 			button.click();
 			js.executeScript("window.scrollTo(0,90)");
 			driver.findElement(By.xpath("//div[@class='steps-appoinment  btn-book-tab']")).click();
@@ -39,7 +45,7 @@ public class BookGroomingAtHome {
 			addPet();
 			selectPlan();
 			selectTimeSlot();
-			// addAddress();
+			//addAddress();
 			selectAddress();
 			makePayment();
 		} catch (Exception e) {
@@ -61,7 +67,15 @@ public class BookGroomingAtHome {
 		driver.findElement(By.xpath("//*[@id=\"bnt-social-login-authentication\"]")).click();
 		Thread.sleep(3000);
 		// click on detect location
-		driver.findElement(By.xpath("//div[@class='detect_location']")).click();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"location-modal\"]/div/span[3]/div")))
+				.click();
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("autosearch"))).sendKeys("201301");
+		Thread.sleep(2000);
+		List<WebElement> list = driver.findElements(By.xpath(
+				"//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all']/li/a"));
+		list.get(0).click();
 		Thread.sleep(2000);
 	}
 
@@ -87,7 +101,7 @@ public class BookGroomingAtHome {
 //		js.executeScript("window.scrollTo(0,100)");
 
 		WebElement txt = driver.findElement(
-				By.xpath("/html/body/div[3]/main/div[2]/div[1]/div[2]/fieldset[1]/ul/li[1]/div[3]/button"));
+				By.xpath("//ul[@class='manage-pets']/li/div[3]/button"));
 		txt.click();
 		System.out.println(txt.getText());
 		Thread.sleep(2000);
@@ -104,21 +118,30 @@ public class BookGroomingAtHome {
 	// select timeslot
 	public void selectTimeSlot() throws InterruptedException {
 		js.executeScript("window.scrollTo(0,100)");
-		driver.findElement(By.xpath(
-				"//*[@id='grooming-calendar-slot']/div[2]/div/table/tbody/tr/td/div/div/div/table/tbody/tr[4]/td[5]/div/div[2]"))
-				.click();
-		driver.findElement(By.xpath("//*[@id=\"grooming-timeslot\"]/ol/li[21]")).click();
+		// select current date
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
+		Date today = Calendar.getInstance().getTime();
+		String date = dateFormat.format(today);
+		System.out.println(date);
+		Thread.sleep(2000);
+		// Select time
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"grooming-timeslot\"]/ol/li[9]")))
+				.click();// *[@id="grooming-timeslot"]/ol/li[3]
 		driver.findElement(By.xpath("//*[@id=\"time-proceed-73\"]")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@id=\"groomer-service\"]/fieldset[4]/div[1]/ul/li")).click();
-		Thread.sleep(3000);
 	}
 
 	// Add Address
+
 	public void addAddress() throws InterruptedException {
+		Thread.sleep(2000);
 		// driver.findElement(By.xpath("/html/body/div[4]/main/div[2]/div[1]/div[2]/fieldset[4]/div[1]/ul/li[1]/div[3]/button")).click();
-		driver.findElement(By.xpath("//div[@class='control']/input[@id='firstname']")).sendKeys("Keerti");
-		driver.findElement(By.xpath("//div[@class='control']/input[@id='street_1']")).sendKeys("79/1 -A royal");
+		driver.findElement(By.xpath("//input[@id='firstname']")).sendKeys("Keerti");
+		driver.findElement(By.xpath("//input[@id='street_1']")).sendKeys("79/1 -A royal");
+		Select city = new Select(driver.findElement(By.id("region_id")));
+		city.selectByValue("542");
 		driver.findElement(By.xpath("//*[@id=\"save-service-address\"]")).click();
 		Thread.sleep(2000);
 	}

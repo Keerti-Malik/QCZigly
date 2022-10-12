@@ -22,7 +22,7 @@ public class ExperienceCentreFromHomePage
 		driver =new ChromeDriver();
 		driver.manage().window().maximize();
 		
-		driver.get("https://qc.zigly.com/experience-center");
+		driver.get("https://preprod.zigly.com/experience-center");
 		//click on all directions
 		driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[4]/div[2]/div[2]/div[1]/p[6]/button")).click();
 		driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[4]/div[2]/div[2]/div[1]/p[10]/button")).click();

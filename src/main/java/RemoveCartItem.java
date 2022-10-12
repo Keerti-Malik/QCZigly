@@ -15,7 +15,7 @@ public class RemoveCartItem {
 	{
 		 System.setProperty("webdriver.chrome.driver","E:\\chromedriver\\chromedriver.exe");
 		 driver=new ChromeDriver();
-		 driver.get("https://qc.zigly.com/");
+		 driver.get("https://preprod.zigly.com/");
 		 driver.manage().window().maximize();
 	}
 	@Test

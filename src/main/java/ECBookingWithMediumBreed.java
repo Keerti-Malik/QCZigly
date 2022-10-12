@@ -18,7 +18,7 @@ public class ECBookingWithMediumBreed {
 		System.setProperty("webdriver.chrome.driver", "E:\\chromedriver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("https://qc.zigly.com/");
+		driver.get("https://preprod.zigly.com/");
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		driver.findElement(By.xpath("//*[@id=\"html-body\"]/div[3]/header/div[3]/div[1]/ul/li[1]/a")).click();
 		WebElement button = wait.until(ExpectedConditions.visibilityOfElementLocated(

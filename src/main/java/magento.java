@@ -13,7 +13,7 @@ public class magento {
 	{
 		 System.setProperty("webdriver.chrome.driver","E:\\chromedriver\\chromedriver.exe");
 		 driver=new ChromeDriver();
-		 driver.get("https://qc.zigly.com/admin/admin/index/index/key/8eb97891d87c711a051991a9fc5183a2d064798ae927b9539364986540b1121b/");
+		 driver.get("https://preprod.zigly.com/admin/admin/index/index/key/8eb97891d87c711a051991a9fc5183a2d064798ae927b9539364986540b1121b/");
 		 driver.manage().window().maximize();
 	}
 	@Test

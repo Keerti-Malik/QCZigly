@@ -15,7 +15,7 @@ public class loginlogout {
 		{
 			System.setProperty("webdriver.chrome.driver","E:\\chromedriver\\chromedriver.exe");
 			WebDriver driver= new ChromeDriver();
-			String baseUrl = "https://qc.zigly.com/";
+			String baseUrl = "https://preprod.zigly.com/";
 			driver.get(baseUrl);
 			Thread.sleep(2000);
 			driver.manage().window().maximize();

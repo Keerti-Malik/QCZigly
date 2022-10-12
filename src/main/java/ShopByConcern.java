@@ -12,9 +12,9 @@ public class ShopByConcern {
 		System.setProperty("webdriver.chrome.driver","E:\\chromedriver\\chromedriver.exe");
 		WebDriver driver= new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("https://qc.zigly.com/");
+		driver.get("https://preprod.zigly.com/");
 		Thread.sleep(2000);
-		//clickbyconcern(driver);
+		clickbyconcern(driver);
 		clickByBrand(driver);
 		}
 	

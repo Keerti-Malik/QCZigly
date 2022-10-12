@@ -16,7 +16,7 @@ public class BlogPage
 	{
 		System.setProperty("webdriver.chrome.driver","E:\\chromedriver\\chromedriver.exe");
 		WebDriver driver=new ChromeDriver();
-		 driver.get("https://qc.zigly.com/");
+		 driver.get("https://preprod.zigly.com/");
 		 driver.manage().window().maximize();
 		JavascriptExecutor js= (JavascriptExecutor)driver;
 	    //click on Blog icon

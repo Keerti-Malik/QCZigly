@@ -15,7 +15,7 @@ public class AddRemoveProduct {
 	{
 		 System.setProperty("webdriver.chrome.driver","E:\\chromedriver\\chromedriver.exe");
 		 driver=new ChromeDriver();
-		 driver.get("https://qc.zigly.com/shop/for-cats.html");
+		 driver.get("https://preprod.zigly.com/shop/for-cats.html");
 		 driver.manage().window().maximize();
 	}
 	@Test

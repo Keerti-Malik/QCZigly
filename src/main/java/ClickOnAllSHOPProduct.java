@@ -21,7 +21,10 @@ public class ClickOnAllSHOPProduct {
 		WebDriver driver= new ChromeDriver();
 		driver.manage().window().maximize();
 		
-		driver.get("https://qc.zigly.com/");
+		driver.get("https://preprod.zigly.com/");
+		Thread.sleep(2000);
+		//accept notification
+		driver.findElement(By.xpath("//*[@id='optInText']")).click();
 		Thread.sleep(2000);
 		clickonDog(driver);
 		clickonCat(driver);

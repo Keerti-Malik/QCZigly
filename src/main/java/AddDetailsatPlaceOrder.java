@@ -18,12 +18,12 @@ public class AddDetailsatPlaceOrder {
 		int phn = 37;
 		int email = 16;
 		//int street = 1;
-		for (int i = 0; i <= 0; i++)
+		for (int i = 0; i <= 1; i++)
 		{
 			
 				System.setProperty("webdriver.chrome.driver", "E:\\chromedriver\\chromedriver.exe");
 				WebDriver driver = new ChromeDriver();
-				driver.get("https://qc.zigly.com/shop/for-cats.html");
+				driver.get("https://preprod.zigly.com/shop/for-cats.html");
 				driver.manage().window().maximize();
 				// JavascriptExecutor js= (JavascriptExecutor)driver;
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));

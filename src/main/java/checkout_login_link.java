@@ -22,7 +22,7 @@ public class checkout_login_link {
 		driver.manage().window().maximize();
 		JavascriptExecutor js= (JavascriptExecutor)driver;
 		WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(30));
-		driver.get("https://qc.zigly.com/");
+		driver.get("https://preprod.zigly.com/");
 	    //click on home page 'DOG'
 	    Thread.sleep(2000);
 	    driver.findElement(By.xpath("//div[@class='static-cards']/div[1]")).click();
@@ -30,7 +30,14 @@ public class checkout_login_link {
 	    Thread.sleep(2000);
 	    driver.findElement(By.xpath("//button[contains(@class,'action tocart primary')]")).click();
 	  //  Select Size
-	  wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='swatch-option text']"))).click();
+	    
+	  List<WebElement> listitem= driver.findElements(By.xpath("//div[@class='swatch-attribute-options clearfix']/div"));
+	  for(int k=0; k<listitem.size(); k++) {
+		  System.out.println(listitem.get(k).getText());
+		 if(listitem.get(k).getAttribute("disabled") == null || !"true".equalsIgnoreCase(listitem.get(k).getAttribute("disabled"))) {
+       listitem.get(k).click();
+	  }
+	  }
 	   // Click on Add to Cart
 	    driver.findElement(By.id("product-addtocart-button")).click(); 
 	   Thread.sleep(3000);
@@ -61,12 +68,13 @@ public class checkout_login_link {
 			driver.findElement(By.xpath("//*[@id=\"login_pass_4\"]")).sendKeys("0");
 			driver.findElement(By.xpath("//*[@id=\"bnt-social-login-authentication\"]")).click();
 			//driver.close();
-			Thread.sleep(3000);
+			Thread.sleep(4000);
 			// Select address
 			List<WebElement> list=driver.findElements(By.xpath("//div[@class='field addresses']/div/div/div/div/button"));
 			 for(int i=0; i<list.size();i++) {
-				 System.out.println(list.get(i).getText());
+				 System.out.println(list.get(i).getText());		 
 			list.get(0).click();
+			//break;
 			 }
 			// click on Place Order
 			Thread.sleep(2000);
@@ -74,6 +82,7 @@ public class checkout_login_link {
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//*[@id=\"shipping-method-buttons-container\"]/div/button")).click();
 			Thread.sleep(3000);
+			js.executeScript("scroll(0, 200)");
 			// Make Payment
             //click on PAyment RazorPay
 			driver.findElement(By.xpath("//div[@class='actions-toolbar']/div/button[@class='action primary checkout']"))

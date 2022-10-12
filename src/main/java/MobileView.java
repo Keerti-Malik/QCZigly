@@ -17,7 +17,7 @@ public class MobileView {
 	public void searchwithfilters() throws Exception {
 		System.setProperty("webdriver.chrome.driver", "E:\\chromedriver\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
-		String baseUrl = "https://qa.zigly.com/";
+		String baseUrl = "https://preprod.zigly.com/";
 		driver.get(baseUrl);
 		Thread.sleep(2000);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
