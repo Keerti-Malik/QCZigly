@@ -75,36 +75,7 @@ public class VetBookingwithAddNewPet {
 		driver.findElement(By.xpath(
 				"//*[@id=\"vet-consulting\"]/fieldset[5]/div[1]/div/div/div/div[2]/div[2]/div[9]/fieldset/label"))
 				.click();
-		Thread.sleep(1000);
-		// click on checkbox
-		driver.findElement(By.xpath("//div[@class='terms-and-conditions-checkbox']")).click();
-		Thread.sleep(2000);
-		// click on make payment
-		driver.findElement(By.xpath("//button[@class='btn-payment-make']")).click();
-		Thread.sleep(3000);
-		driver.switchTo().frame(0);
-		// click on netbanking
-		wait.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("//div[@class='methods-block']/div/button[3]/div/div/div[@class='svelte-zafzgj']"))).click();
-
-		driver.findElement(By.id("bank-item-UTIB")).click();
-		Thread.sleep(2000);
-		String parentHandle = driver.getWindowHandle();
-		System.out.println("Parent Window" + parentHandle);
-		// click on pay amount
-		driver.findElement(By.id("footer")).click();
-		Thread.sleep(4000);
-		Set<String> handles = driver.getWindowHandles();
-		for (String handle : handles) {
-			// System.out.println(handle);
-			if (!handle.equals(parentHandle)) {
-				driver.switchTo().window(handle);
-				String a = driver.getTitle();
-				System.out.print(a);
-				driver.findElement(By.xpath("/html/body/form/button[1]")).click();
-
-			}
-		}
+		
 	}
 
 	public void addNewPet() throws InterruptedException, Exception {

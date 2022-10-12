@@ -29,7 +29,7 @@ public class EditProfile {
 	{
 	     //click on user logo
 	     driver.findElement(By.xpath("//*[@id=\"html-body\"]/div[3]/header/div[2]/ul/li[2]")).click();
-			//select your orders
+			//select manage profile
 			List<WebElement> list= driver.findElements(By.xpath("//div[@class='dropdown-options']/ul/li/a"));
 		    for(int i=0; i<list.size();i++) 
 		    {

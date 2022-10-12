@@ -14,7 +14,7 @@ public class ShopByConcern {
 		driver.manage().window().maximize();
 		driver.get("https://qc.zigly.com/");
 		Thread.sleep(2000);
-		//clickbyconcern(driver);
+		clickbyconcern(driver);
 		clickByBrand(driver);
 		}
 	

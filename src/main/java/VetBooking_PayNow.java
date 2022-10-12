@@ -76,30 +76,30 @@ public class VetBooking_PayNow {
 		driver.findElement(By.xpath("//button[@class='btn-payment-make']")).click();
 		Thread.sleep(3000);
 		driver.switchTo().frame(0);
-		   //  click on netbanking
-		     wait.until(ExpectedConditions.visibilityOfElementLocated(
-						By.xpath("//div[@class='methods-block']/div/button[3]/div/div/div[@class='svelte-zafzgj']")))
-						.click();
-		    
-		     driver.findElement(By.id("bank-item-UTIB")).click();
-		     Thread.sleep(2000);
-		    String parentHandle= driver.getWindowHandle();
-		     System.out.println("Parent Window"+parentHandle);
-		     //click on pay amount
-		     driver.findElement(By.id("footer")).click();
-		     Thread.sleep(4000);
-		     Set<String> handles= driver.getWindowHandles();
-		     for(String handle:handles) 
-		     {
-		    	 //System.out.println(handle);
-		    	 if(!handle.equals(parentHandle)) 
-		    	 {
-		    		 driver.switchTo().window(handle);
-		    		 String a=driver.getTitle();
-		    		 System.out.print(a);
-		    		 driver.findElement(By.xpath("/html/body/form/button[1]")).click();
-		    		
-		    	 }
-		     }
+		Thread.sleep(4000);
+		js.executeScript("window.scrollTo(0,100)");
+		// click on netbanking
+		driver.findElement(By.xpath("//div[@class='methods-block']/div/button[3]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[@id='bank-item-UTIB']")).click();
+		js.executeScript("window.scrollTo(0,100)");
+		Thread.sleep(2000);
+		String parentHandle = driver.getWindowHandle();
+		System.out.println("Parent Window" + parentHandle);
+		Thread.sleep(3000);
+		// click on pay amount
+		driver.findElement(By.id("footer")).click();
+		Thread.sleep(4000);
+		Set<String> handles = driver.getWindowHandles();
+		for (String handle : handles) {
+			// System.out.println(handle);
+			if (!handle.equals(parentHandle)) {
+				driver.switchTo().window(handle);
+				String a = driver.getTitle();
+				System.out.print(a);
+				driver.findElement(By.xpath("/html/body/form/button[1]")).click();
+
+			}
+		}
 	}
 }
