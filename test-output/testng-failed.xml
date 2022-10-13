@@ -3,12 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="MagentoWriteReview">
+      <class name="ConfiguredProductBooking">
         <methods>
-          <include name="writereview"/>
-          <include name="login"/>
+          <include name="searchItem"/>
         </methods>
-      </class> <!-- MagentoWriteReview -->
+      </class> <!-- ConfiguredProductBooking -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
