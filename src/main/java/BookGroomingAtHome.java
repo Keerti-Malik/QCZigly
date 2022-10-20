@@ -42,10 +42,10 @@ public class BookGroomingAtHome {
 
 			Thread.sleep(3000);
 			login();
-			addPet();
+			//addPet();
 			selectPlan();
 			selectTimeSlot();
-			//addAddress();
+			addAddress();
 			selectAddress();
 			makePayment();
 		} catch (Exception e) {
@@ -126,7 +126,7 @@ public class BookGroomingAtHome {
 		Thread.sleep(2000);
 		// Select time
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"grooming-timeslot\"]/ol/li[9]")))
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"grooming-timeslot\"]/ol/li[7]")))
 				.click();// *[@id="grooming-timeslot"]/ol/li[3]
 		driver.findElement(By.xpath("//*[@id=\"time-proceed-73\"]")).click();
 		Thread.sleep(2000);

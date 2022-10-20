@@ -27,19 +27,19 @@ public class checkout_login_link {
 	    Thread.sleep(2000);
 	    driver.findElement(By.xpath("//div[@class='static-cards']/div[1]")).click();
 	    //Click on Addtocart
-	    Thread.sleep(2000);
+	    Thread.sleep(3000);
 	    driver.findElement(By.xpath("//button[contains(@class,'action tocart primary')]")).click();
 	  //  Select Size
-	    
+	/*    
 	  List<WebElement> listitem= driver.findElements(By.xpath("//div[@class='swatch-attribute-options clearfix']/div"));
 	  for(int k=0; k<listitem.size(); k++) {
 		  System.out.println(listitem.get(k).getText());
 		 if(listitem.get(k).getAttribute("disabled") == null || !"true".equalsIgnoreCase(listitem.get(k).getAttribute("disabled"))) {
        listitem.get(k).click();
 	  }
-	  }
+	  }*/
 	   // Click on Add to Cart
-	    driver.findElement(By.id("product-addtocart-button")).click(); 
+	   // driver.findElement(By.id("product-addtocart-button")).click(); 
 	   Thread.sleep(3000);
 	    //click on cart logo
 	    driver.findElement(By.xpath("//div[@class='minicart-wrapper amtheme-header-icon']/a")).click(); 
@@ -87,31 +87,28 @@ public class checkout_login_link {
             //click on PAyment RazorPay
 			driver.findElement(By.xpath("//div[@class='actions-toolbar']/div/button[@class='action primary checkout']"))
 			.click();
-    		
-    		//move to payment page
-		     driver.switchTo().frame(0);
-		   //  click on netbanking
-		     wait.until(ExpectedConditions.visibilityOfElementLocated(
-						By.xpath("//div[@class='methods-block']/div/button[3]/div")))
-						.click();
-		     driver.findElement(By.id("bank-item-UTIB")).click();
+    		Thread.sleep(4000);
+			 //move to payment page
+		     driver.switchTo().frame(1);
+		     Thread.sleep(2000);
+		     //select payment mode
+		     driver.findElement(By.xpath("//div[@class='methods-block']/div/button[3]/div/div[1]")).click();
+		     //Thread.sleep(2000);
+		     driver.findElement(By.xpath("//div[@id='bank-item-UTIB']")).click();
 		     Thread.sleep(2000);
 		    String parentHandle= driver.getWindowHandle();
 		     System.out.println("Parent Window"+parentHandle);
-		     //click on pay amount
-		     driver.findElement(By.id("footer")).click();
+		     js.executeScript("window.scrollTo(0,100)");
+		     driver.findElement(By.xpath("//button[@id='redesign-v15-cta']")).click();
 		     Thread.sleep(4000);
 		     Set<String> handles= driver.getWindowHandles();
-		     for(String handle:handles) 
-		     {
-		    	 //System.out.println(handle);
-		    	 if(!handle.equals(parentHandle)) 
-		    	 {
+		     for(String handle:handles) {
+		    	 System.out.println(handle);
+		    	 if(!handle.equals(parentHandle)) {
 		    		 driver.switchTo().window(handle);
 		    		 String a=driver.getTitle();
 		    		 System.out.print(a);
-		    		 driver.findElement(By.xpath("/html/body/form/button[1]")).click();
-		    		
+		    		 driver.findElement(By.xpath("/html/body/form/button[1]")).click();	
 		    	 }
 		     }
    }

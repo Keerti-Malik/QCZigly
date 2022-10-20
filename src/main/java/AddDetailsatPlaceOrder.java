@@ -36,8 +36,8 @@ public class AddDetailsatPlaceOrder {
 				}
 
 				Thread.sleep(2000);
-				// click on cart logo
-				driver.findElement(By.xpath("//*[@id=\"html-body\"]/div[3]/header/div[2]/div[2]/div[2]/a/img")).click();
+				// click on cart logo//*[@id="html-body"]/div[5]/header/div[2]/div[2]/div[2]/a/img
+				driver.findElement(By.xpath("//*[@id=\"html-body\"]/div[5]/header/div[2]/div[2]/div[2]/a/img")).click();
 				Thread.sleep(3000);
 				// click on checkout
 				driver.findElement(By.xpath("//a[@class='action secondary checkout']")).click();
@@ -59,13 +59,13 @@ public class AddDetailsatPlaceOrder {
 				Thread.sleep(2000);
 				// Enter name
 				WebElement we1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
-						"/html/body/div[3]/main/div[2]/div/div[4]/div[3]/ol/li[1]/div/div[3]/form/div[3]/div[1]/div/input")));
+						"/html/body/div[4]/main/div[2]/div/div[4]/div[3]/ol/li[1]/div/div[3]/form/div[3]/div[1]/div/input")));
 				we1.clear();
 				we1.sendKeys("KM");
 				// Thread.sleep(2000);
 				// enter street
 				WebElement we2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
-						"/html/body/div[3]/main/div[2]/div/div[4]/div[3]/ol/li[1]/div/div[3]/form/div[3]/fieldset/div/div[1]/div/input")));
+						"/html/body/div[4]/main/div[2]/div/div[4]/div[3]/ol/li[1]/div/div[3]/form/div[3]/fieldset/div/div[1]/div/input")));
 				Thread.sleep(1000);
 				// we2.clear();
 				we2.sendKeys("xyz1");

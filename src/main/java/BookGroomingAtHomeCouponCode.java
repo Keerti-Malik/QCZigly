@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
 import org.testng.annotations.Test;
@@ -47,6 +48,7 @@ public class BookGroomingAtHomeCouponCode {
 			selectPet();
 			selectPlan();
 			selectTimeSlot();
+		//	addAddress();
 			selectAddress();
 			selectCouponcode();
 			makePayment();
@@ -110,12 +112,24 @@ public class BookGroomingAtHomeCouponCode {
 		Thread.sleep(2000);
 		// Select time
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"grooming-timeslot\"]/ol/li[8]")))
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"grooming-timeslot\"]/ol/li[10]")))
 				.click();//*[@id="grooming-timeslot"]/ol/li[8]
 		driver.findElement(By.xpath("//*[@id=\"time-proceed-73\"]")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@id=\"groomer-service\"]/fieldset[4]/div[1]/ul/li")).click();
 	}
+	//add address
+	public void addAddress() throws InterruptedException {
+		Thread.sleep(2000);
+		// driver.findElement(By.xpath("/html/body/div[4]/main/div[2]/div[1]/div[2]/fieldset[4]/div[1]/ul/li[1]/div[3]/button")).click();
+		driver.findElement(By.xpath("//input[@id='firstname']")).sendKeys("Keerti");
+		driver.findElement(By.xpath("//input[@id='street_1']")).sendKeys("79/1 -A royal");
+		Select city = new Select(driver.findElement(By.id("region_id")));
+		city.selectByValue("542");
+		driver.findElement(By.xpath("//*[@id=\"save-service-address\"]")).click();
+		Thread.sleep(2000);
+	}
+
 
 	// select address
 	public void selectAddress() throws InterruptedException {
@@ -133,10 +147,10 @@ public class BookGroomingAtHomeCouponCode {
 	// Make Payment
 		public void makePayment() throws InterruptedException {
 			driver.findElement(By.xpath(
-					"//*[@id=\"groomer-service\"]/fieldset[5]/div/div/div/div/div[2]/div[2]/div[6]/fieldset[2]/label"))
+					"//div[@class='offer selection']/fieldset[2]/label"))
 					.click();
 			Thread.sleep(1000);
-			driver.findElement(By.xpath("//*[@id=\"groomer-service\"]/fieldset[5]/div/div/div/div/div[2]/div[2]/button"))
+			driver.findElement(By.xpath("//div[@class='booking-payment']/button"))
 					.click();
 		}
 	

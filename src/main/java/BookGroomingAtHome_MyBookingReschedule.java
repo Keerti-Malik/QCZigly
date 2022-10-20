@@ -22,24 +22,17 @@ public class BookGroomingAtHome_MyBookingReschedule {
 	public void navigatetourl() throws InterruptedException {
 			System.setProperty("webdriver.chrome.driver", "E:\\chromedriver\\chromedriver.exe");
 			driver = new ChromeDriver();
-			
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 			js = (JavascriptExecutor) driver;
 			String baseUrl = "https://preprod.zigly.com/";
 			driver.get(baseUrl);
 			Thread.sleep(2000);
 			driver.manage().window().maximize();
-			//accept notification
-			//driver.switchTo().frame(0);
 			driver.findElement(By.xpath("//*[@id='optInText']")).click();
 			Thread.sleep(2000);
-			//driver.switchTo().alert().dismiss();
-			//driver.switchTo().frame("moengage-web-helper-frame");
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='mobile-only']/li/a"))).click();
-			driver.findElement(By.xpath("//div[@class='mobile-only']/li/a")).click();
 			Login.login(driver);
 			//click on profile logo
-			driver.findElement(By.xpath("//div[@class='mobile-only']/li/a")).click();
+			driver.findElement(By.xpath("//*[@id=\"html-body\"]/div[4]/header/div[2]/ul/li[2]")).click();
 			//select Your Order
 			List<WebElement> profilelist= driver.findElements(By.xpath("//div[@class='dropdown-options']/ul/li/a"));
 		    for(int i=0; i<profilelist.size();i++) 
@@ -50,14 +43,14 @@ public class BookGroomingAtHome_MyBookingReschedule {
 		    }   	
 		    }
 		    Thread.sleep(2000);
-		    //select particular order to reschedule
-		    List<WebElement> orderlist= driver.findElements(By.xpath("//div[@class='owl-stage']/div/li/div[2]/div[2]/a[1]/span"));
-		    for(int j=0; j<orderlist.size();j++) {
+		    //select particular order to reschedule//div[@class='owl-item active']/li/div[2]/div[2]/a[2]
+		    List<WebElement> orderlist= driver.findElements(By.xpath("//div[@class='owl-item active']/li/div[2]/div[2]/a[1]"));
+		    for(int j=0; j<orderlist.size();j++) {//div[@class='owl-stage']/div/li/div/a/img
 		    	orderlist.get(0).click();
 		    }
 		    Thread.sleep(2000);
 		    //click on reschedule
-		    //driver.findElement(By.xpath("//div[@class='booking-action']/a[1]")).click();
+		    driver.findElement(By.xpath("//div[@class='booking-action']/a[1]")).click();
 		 // click on detect location
 			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(30));
 			driver.findElement(By.xpath("//div[@class='primary location-tooltip-show']/button")).click();

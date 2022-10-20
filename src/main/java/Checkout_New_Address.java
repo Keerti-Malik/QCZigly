@@ -16,8 +16,10 @@ public class Checkout_New_Address
 		System.setProperty("webdriver.chrome.driver","E:\\chromedriver\\chromedriver.exe");
 		WebDriver driver=new ChromeDriver();
 		//JavascriptExecutor js= (JavascriptExecutor)driver;
+		String baseUrl = "https://preprod.zigly.com/";
+		driver.get(baseUrl);
 		WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(30));
-	    Login.login(driver);
+		Login.login(driver);
 	    Thread.sleep(2000);
 	    //click on Dog
 	    driver.findElement(By.xpath("//div[@class='static-cards']/div[1]")).click();
