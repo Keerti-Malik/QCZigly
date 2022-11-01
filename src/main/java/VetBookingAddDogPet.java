@@ -47,7 +47,7 @@ public class VetBookingAddDogPet {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//div[@class='add-pet']/a")).click();
 		addNewPet();
-		WebElement element = driver.findElement(By.xpath("//ul[@class='manage-pets']/li[6]/div/label"));
+		WebElement element = driver.findElement(By.xpath("//ul[@class='manage-pets']/li[2]/div/label"));
 		js.executeScript("arguments[0].click();", element);
 		// click on NEXT button
 		driver.findElement(By.name("next")).click();
@@ -68,9 +68,8 @@ public class VetBookingAddDogPet {
 		driver.findElement(By.xpath("//*[@id=\"progressbar\"]/label[2]")).click();
 		Thread.sleep(2000);
 		// click on book appointment
-		driver.findElement(By.xpath(
-				"/html/body/div[4]/main/div[2]/div/div[2]/fieldset[4]/div/div[2]/div/div[1]/div[2]/div[3]/button"))
-				.click();
+		List<WebElement> vetlist=driver.findElements(By.xpath("//div[@class='action book-appointment']/button"));
+		vetlist.get(1).click();
 		Thread.sleep(2000);
 		// click on pay now
 		driver.findElement(By.xpath(
@@ -83,31 +82,28 @@ public class VetBookingAddDogPet {
 		// click on make payment
 		driver.findElement(By.xpath("//button[@class='btn-payment-make']")).click();
 		Thread.sleep(3000);
-		driver.switchTo().frame(0);
-		Thread.sleep(4000);
-		js.executeScript("window.scrollTo(0,100)");
-		// click on netbanking
-		driver.findElement(By.xpath("//div[@class='methods-block']/div/button[3]")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//div[@id='bank-item-UTIB']")).click();
-		js.executeScript("window.scrollTo(0,100)");
-		Thread.sleep(2000);
-		String parentHandle = driver.getWindowHandle();
-		System.out.println("Parent Window" + parentHandle);
-		Thread.sleep(3000);
-		// click on pay amount
-		driver.findElement(By.id("footer")).click();
-		Thread.sleep(4000);
-		Set<String> handles = driver.getWindowHandles();
-		for (String handle : handles) {
-			// System.out.println(handle);
-			if (!handle.equals(parentHandle)) {
-				driver.switchTo().window(handle);
-				String a = driver.getTitle();
-				System.out.print(a);
-				driver.findElement(By.xpath("/html/body/form/button[1]")).click();
-
-			}
+		//move to payment page
+	     driver.switchTo().frame(1);
+	     Thread.sleep(2000);
+	     //select payment mode
+	     driver.findElement(By.xpath("//div[@class='methods-block']/div/button[3]/div/div")).click();
+	     //Thread.sleep(2000);
+	     driver.findElement(By.xpath("//div[@id='bank-item-UTIB']")).click();
+	     Thread.sleep(2000);
+	    String parentHandle= driver.getWindowHandle();
+	     System.out.println("Parent Window"+parentHandle);
+	     js.executeScript("window.scrollTo(0,100)");
+	     driver.findElement(By.xpath("//button[@id='redesign-v15-cta']")).click();
+	     Thread.sleep(4000);
+	     Set<String> handles= driver.getWindowHandles();
+	     for(String handle:handles) {
+	    	 System.out.println(handle);
+	    	 if(!handle.equals(parentHandle)) {
+	    		 driver.switchTo().window(handle);
+	    		 String a=driver.getTitle();
+	    		 System.out.print(a);
+	    		 driver.findElement(By.xpath("/html/body/form/button[1]")).click();	
+	    	 }
 		}
 	}
 
@@ -121,9 +117,9 @@ public class VetBookingAddDogPet {
 		// Select breed
 		WebElement breed=driver.findElement(By.xpath("//*[@id=\"breedname\"]"));
 				breed.sendKeys("Great Dan");
-				Thread.sleep(1000);
+				Thread.sleep(2000);
 				List<WebElement> list = driver.findElements(By.xpath(
-						"//ul[@id='ui-id-185']/li/a"));
+						"//ul[@id='ui-id-176']/li/a"));
 				for(int j=0; j<list.size();j++) {
 				list.get(j).getText();
 				}

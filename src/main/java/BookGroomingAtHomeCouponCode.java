@@ -112,7 +112,7 @@ public class BookGroomingAtHomeCouponCode {
 		Thread.sleep(2000);
 		// Select time
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"grooming-timeslot\"]/ol/li[10]")))
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"grooming-timeslot\"]/ol/li[5]")))
 				.click();//*[@id="grooming-timeslot"]/ol/li[8]
 		driver.findElement(By.xpath("//*[@id=\"time-proceed-73\"]")).click();
 		Thread.sleep(2000);

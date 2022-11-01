@@ -26,7 +26,8 @@ public class BookGroomingAtHome_CancelBooking {
 			driver.manage().window().maximize();
 			Login.login(driver);
 			//click on profile logo
-			driver.findElement(By.xpath("//*[@id=\"html-body\"]/div[4]/header/div[2]/ul/li[2]")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//ul[@class='header-links']/li[2]")).click();
 			//select Your Order
 			List<WebElement> profilelist= driver.findElements(By.xpath("//div[@class='dropdown-options']/ul/li/a"));
 		    for(int i=0; i<profilelist.size();i++) 

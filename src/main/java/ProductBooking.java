@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
 public class ProductBooking {
 
-	@Test()
+	@Test(invocationCount=1)
 	public void run() throws InterruptedException
 	// public static void main(String[] args) throws InterruptedException
 	{
@@ -30,7 +30,8 @@ public class ProductBooking {
 		Thread.sleep(2000);
 		searchByKey(driver, "M-Pets Twist Ball Toy 11 cm - yellow");
 		// click on Add to Cart
-		// Thread.sleep(2000);
+		 Thread.sleep(2000);
+		 js.executeScript("window.scrollTo(0,150)");
 		driver.findElement(By.id("st-3051-atc")).click();
 		Thread.sleep(2000);
 		// click on cart logo
@@ -49,10 +50,11 @@ public class ProductBooking {
 
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//*[@id=\"chk-contct\"]/div[2]/a")).click();
+		Thread.sleep(1000);
 		Login.afterlogin(driver);
 		Thread.sleep(2000);
 		js.executeScript("window.scrollTo(0,100)");
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		// select address
 		List<WebElement> addresses = driver
 				.findElements(By.xpath("//div[@class='shipping-address-items']/div/div/button"));
@@ -61,9 +63,12 @@ public class ProductBooking {
 		}
 		Thread.sleep(2000);
 		js.executeScript("window.scrollTo(0,200)");
+		Thread.sleep(1000);
 		// click on place order
 		driver.findElement(By.xpath("//*[@id=\"shipping-method-buttons-container\"]/div/button")).click();
 		Thread.sleep(2000);
+		js.executeScript("window.scrollTo(0,300)");
+		Thread.sleep(1000);
 		// click on pay with razor pay
 		driver.findElement(
 				By.xpath("//*[@id=\"checkout-payment-method-load\"]/div/div/div[2]/div[2]/div[4]/div/button")).click();
@@ -91,6 +96,7 @@ public class ProductBooking {
 	    		 driver.findElement(By.xpath("/html/body/form/button[1]")).click();	
 	    	 }
 	     }
+	     
 	}
 
 	private static void searchByKey(WebDriver driver, String searchKey) throws InterruptedException {

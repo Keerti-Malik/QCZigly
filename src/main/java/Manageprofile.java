@@ -15,7 +15,8 @@ public class Manageprofile {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Login.login(driver);
 		// click on profile logo
-		driver.findElement(By.xpath("//*[@id=\"html-body\"]/div[3]/header/div[2]/ul/li[2]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//ul[@class='header-links']/li[2]")).click();
 		Thread.sleep(2000);
 		List<WebElement> list = driver.findElements(By.xpath("//div[@class='dropdown-options']/ul/li/a"));
 		for (int i = 0; i < list.size(); i++) {
@@ -37,11 +38,11 @@ public class Manageprofile {
 		driver.findElement(By.xpath("//*[@id=\"managepet-form\"]/fieldset[1]/div/div/div/label[2]")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//*[@id=\"managepet-form\"]/fieldset[2]/div/div/div/label[2]")).click();
-		driver.findElement(By.xpath("//*[@id=\"breedname\"]")).sendKeys("Bengal Cat");
-		Thread.sleep(3000);
+		driver.findElement(By.xpath("//*[@id=\"breedname\"]")).sendKeys("Bengal Ca");
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("/html/body/ul[2]")).click();
-		driver.findElement(By.xpath("//*[@id=\"age_year\"]")).sendKeys("1");
-		driver.findElement(By.xpath("//*[@id=\"age_month\"]")).sendKeys("1");
+		driver.findElement(By.xpath("//*[@id=\"age_year\"]")).sendKeys("0");
+		driver.findElement(By.xpath("//*[@id=\"age_month\"]")).sendKeys("7");
 		driver.findElement(By.xpath("//*[@id=\"name\"]")).sendKeys("Suffy");
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//*[@id=\"managepet-form\"]/fieldset[7]/div[2]/div/button")).click();

@@ -1,6 +1,7 @@
 import java.util.Set;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
@@ -12,6 +13,7 @@ public class LoginThenSearch {
    {
 		System.setProperty("webdriver.chrome.driver","E:\\chromedriver\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
+		JavascriptExecutor js=(JavascriptExecutor) driver;
        Login.login(driver);
        //click on search textbox
        driver.findElement(By.id("search")).click();
@@ -41,15 +43,18 @@ public class LoginThenSearch {
 	     Thread.sleep(3000);
 	     driver.findElement(By.xpath("//div[@class='actions-toolbar']/div/button[@class='action primary checkout']")).click();
 	    Thread.sleep(4000);
-	    //move to payment page
-	     driver.switchTo().frame(0);
-	     driver.findElement(By.xpath("//div[@class='methods-block']/div/button[3]")).click();
+	  //move to payment page
+	     driver.switchTo().frame(1);
+	     Thread.sleep(2000);
+	     //select payment mode
+	     driver.findElement(By.xpath("//div[@class='methods-block']/div/button[3]/div/div")).click();
 	     //Thread.sleep(2000);
-	     driver.findElement(By.xpath("//div[@class='netb-bank item radio-item svelte-wp9tn'][1]")).click();
+	     driver.findElement(By.xpath("//div[@id='bank-item-UTIB']")).click();
 	     Thread.sleep(2000);
 	    String parentHandle= driver.getWindowHandle();
 	     System.out.println("Parent Window"+parentHandle);
-	     driver.findElement(By.id("footer")).click();
+	     js.executeScript("window.scrollTo(0,100)");
+	     driver.findElement(By.xpath("//button[@id='redesign-v15-cta']")).click();
 	     Thread.sleep(4000);
 	     Set<String> handles= driver.getWindowHandles();
 	     for(String handle:handles) {
@@ -58,8 +63,7 @@ public class LoginThenSearch {
 	    		 driver.switchTo().window(handle);
 	    		 String a=driver.getTitle();
 	    		 System.out.print(a);
-	    		 driver.findElement(By.xpath("/html/body/form/button[1]")).click();
-	    		
+	    		 driver.findElement(By.xpath("/html/body/form/button[1]")).click();	
 	    	 }
 	     }
    }

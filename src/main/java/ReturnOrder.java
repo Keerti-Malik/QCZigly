@@ -1,6 +1,7 @@
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -23,7 +24,7 @@ public class ReturnOrder {
 	 public void navigateToYourOrder() throws Exception 
 	{
 		//go to on profile logo
-		driver.findElement(By.xpath("//*[@id=\"html-body\"]/div[3]/header/div[2]/ul/li[2]")).click();
+		driver.findElement(By.xpath("//ul[@class='header-links']/li[2]")).click();
 		//select your orders
 		List<WebElement> list= driver.findElements(By.xpath("//div[@class='dropdown-options']/ul/li/a"));
 	    for(int i=0; i<list.size();i++) 
@@ -41,7 +42,7 @@ public class ReturnOrder {
 	    driver.findElement(By.xpath("//*[@id=\"my-orders-table\"]/tbody/tr/td[3]/dl/dd/a")).click();
 	    Thread.sleep(2000);
 	    driver.findElement(By.id("amreview-toform")).click();
-	    //select fedback start
+	    //select feedback start
 	    driver.findElement(By.xpath("//*[@id=\"Feedback_5_label\"]")).click();
 	    //write inside order summary
 	    driver.findElement(By.id("summary_field")).sendKeys("Good product");
@@ -69,6 +70,8 @@ public class ReturnOrder {
 	    driver.findElement(By.id("returns")).sendKeys("I want to return this order.");
 	    //click on submit
 	    driver.findElement(By.xpath("//button[@class='action primary order-return-reason']/span")).click();
+	    JavascriptExecutor js= (JavascriptExecutor)driver;
+	    js.executeScript("window.scrollTo(0,150)");
 	    //print submssion message
 	   WebElement webe= driver.findElement(By.xpath("//div[@class='messages']/div/div"));
 	  System.out.println(webe.getText());

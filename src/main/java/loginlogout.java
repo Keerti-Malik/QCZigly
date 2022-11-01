@@ -19,7 +19,7 @@ public class loginlogout {
 			driver.get(baseUrl);
 			Thread.sleep(2000);
 			driver.manage().window().maximize();
-			driver.findElement(By.xpath("//*[@id=\"html-body\"]/div[3]/header/div[2]/ul/li[2]")).click();
+			driver.findElement(By.xpath("//div[@class='header content']//ul/li[2]")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//*[@id=\"social_login_email\"]")).sendKeys("9759436633");
 			
@@ -31,7 +31,7 @@ public class loginlogout {
 			driver.findElement(By.xpath("//*[@id=\"login_pass_4\"]")).sendKeys("0");
 			driver.findElement(By.xpath("//*[@id=\"bnt-social-login-authentication\"]")).click();
 			Thread.sleep(3000);
-			driver.findElement(By.xpath("//*[@id=\"html-body\"]/div[3]/header/div[2]/ul/li[2]")).click();
+			driver.findElement(By.xpath("//ul[@class='header-links']/li[2]")).click();
 			Thread.sleep(2000);
 			List<WebElement> list= driver.findElements(By.xpath("//div[@class='dropdown-options']/ul/li/a"));
 		    for(int i=0; i<list.size();i++) {

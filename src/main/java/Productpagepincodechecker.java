@@ -14,7 +14,7 @@ public class Productpagepincodechecker {
 	public void login() throws Exception {
 		System.setProperty("webdriver.chrome.driver", "E:\\chromedriver\\chromedriver.exe");
 		driver = new ChromeDriver();
-		driver.get("https://prepord.zigly.com/");
+		driver.get("https://preprod.zigly.com/");
 		driver.manage().window().maximize();
 	}
 

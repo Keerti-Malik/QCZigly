@@ -32,10 +32,11 @@ public class BookGroomingAtHome {
 			driver.get(baseUrl);
 			Thread.sleep(2000);
 			driver.manage().window().maximize();
-
-			driver.findElement(By.xpath("//*[@id=\"html-body\"]/div[4]/header/div[3]/div[1]/ul/li[1]/a")).click();
+			driver.findElement(By.xpath("//*[@id='optInText']")).click();
+			Thread.sleep(3000);
+			driver.findElement(By.xpath("//*[@id=\"html-body\"]/div[5]/header/div[3]/div[1]/ul/li[1]/a")).click();
 			WebElement button = wait.until(ExpectedConditions.visibilityOfElementLocated(
-					By.xpath("//*[@id=\"html-body\"]/div[4]/header/div[3]/div[1]/ul/li[1]/div/ul/li[1]")));
+					By.xpath("//*[@id=\"html-body\"]/div[5]/header/div[3]/div[1]/ul/li[1]/div/ul/li[1]")));
 			button.click();
 			js.executeScript("window.scrollTo(0,90)");
 			driver.findElement(By.xpath("//div[@class='steps-appoinment  btn-book-tab']")).click();
@@ -43,6 +44,7 @@ public class BookGroomingAtHome {
 			Thread.sleep(3000);
 			login();
 			//addPet();
+			selectPet();
 			selectPlan();
 			selectTimeSlot();
 			addAddress();
@@ -107,6 +109,13 @@ public class BookGroomingAtHome {
 		Thread.sleep(2000);
 	}
 
+	// Select Pet
+		public void selectPet() throws Exception {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul[@class='manage-pets']/li/div[3]/button[1]")))
+					.click();
+			Thread.sleep(2000);
+		}
 	// select plan
 	public void selectPlan() throws InterruptedException {
 		WebElement txt2 = driver.findElement(By.xpath("//*[@id=\"plan-select-defined\"]"));

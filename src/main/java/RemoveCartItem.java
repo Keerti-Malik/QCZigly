@@ -31,7 +31,11 @@ public class RemoveCartItem {
 					break;
 				}
 			     //Select Size
-				  driver.findElement(By.xpath("//div[@class='swatch-option text']")).click();
+				 List<WebElement> size= driver.findElements(By.xpath("//div[@class='swatch-option text']"));
+				 if (size.size() > 0 && size.get(0).getText().equalsIgnoreCase("L")) {
+					 size.get(0).click();
+						Thread.sleep(2000);
+				 }
 				// Click on Add to Cart
 				    driver.findElement(By.id("product-addtocart-button")).click();
 				    Thread.sleep(2000);
@@ -45,7 +49,7 @@ public class RemoveCartItem {
 					// Click on Add to Cart
 					    driver.findElement(By.id("product-addtocart-button")).click();
 			     //click on cart logo
-			        driver.findElement(By.xpath("//*[@id=\"html-body\"]/div[3]/header/div[2]/div[2]/div[2]/a/img")).click();
+					    driver.findElement(By.xpath("//a[@class='action showcart']")).click();
 			        Thread.sleep(2000);          
 			        //delete item from cart
 			        driver.findElement(By.xpath("//div[@class='product-item-details']/div/a[@class='action delete']")).click();

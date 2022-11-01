@@ -39,28 +39,28 @@ public class QuickBuyWithRazorPay {
 		driver.findElement(By.xpath("//div[@class='actions-toolbar']/div/button[@class='action primary checkout']"))
 				.click();
 		Thread.sleep(4000);
-		driver.switchTo().frame(0);
-		// click on netbanking
-		driver.findElement(By.xpath("//div[@class='methods-block']/div/button[3]")).click();
-		// Thread.sleep(2000);
-		// select bank
-		driver.findElement(By.id("bank-item-UTIB")).click();
-		Thread.sleep(2000);
-		// driver.findElement(By.id("footer")).click();
-		String parentHandle = driver.getWindowHandle();
-		System.out.println("Parent Window" + parentHandle);
-		driver.findElement(By.id("footer")).click();
-		Thread.sleep(4000);
-		Set<String> handles = driver.getWindowHandles();
-		for (String handle : handles) {
-			System.out.println(handle);
-			if (!handle.equals(parentHandle)) {
-				driver.switchTo().window(handle);
-				String a = driver.getTitle();
-				System.out.print(a);
-				driver.findElement(By.xpath("/html/body/form/button[1]")).click();
-
-			}
+		//move to payment page
+	     driver.switchTo().frame(1);
+	     Thread.sleep(2000);
+	     //select payment mode
+	     driver.findElement(By.xpath("//div[@class='methods-block']/div/button[3]/div/div")).click();
+	     //Thread.sleep(2000);
+	     driver.findElement(By.xpath("//div[@id='bank-item-UTIB']")).click();
+	     Thread.sleep(2000);
+	    String parentHandle= driver.getWindowHandle();
+	     System.out.println("Parent Window"+parentHandle);
+	     js.executeScript("window.scrollTo(0,100)");
+	     driver.findElement(By.xpath("//button[@id='redesign-v15-cta']")).click();
+	     Thread.sleep(4000);
+	     Set<String> handles= driver.getWindowHandles();
+	     for(String handle:handles) {
+	    	 System.out.println(handle);
+	    	 if(!handle.equals(parentHandle)) {
+	    		 driver.switchTo().window(handle);
+	    		 String a=driver.getTitle();
+	    		 System.out.print(a);
+	    		 driver.findElement(By.xpath("/html/body/form/button[1]")).click();	
+	    	 }
 		}
 
 	}

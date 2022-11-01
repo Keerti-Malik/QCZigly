@@ -67,9 +67,8 @@ public class VetBookingwithAddNewPet {
 		driver.findElement(By.xpath("//*[@id=\"progressbar\"]/label[2]")).click();
 		Thread.sleep(2000);
 		// click on book appointment
-		driver.findElement(By.xpath(
-				"/html/body/div[4]/main/div[2]/div/div[2]/fieldset[4]/div/div[2]/div/div[1]/div[2]/div[3]/button"))
-				.click();
+		List<WebElement> vetlist=driver.findElements(By.xpath("//div[@class='action book-appointment']/button"));
+		vetlist.get(1).click();
 		Thread.sleep(2000);
 		// click on pay now
 		driver.findElement(By.xpath(

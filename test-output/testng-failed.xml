@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="BookGroomingAtHome_CancelBooking">
+      <class name="BookGroomingAtHome_Reschedule">
         <methods>
-          <include name="cancelbooking"/>
+          <include name="reschedulebooking"/>
         </methods>
-      </class> <!-- BookGroomingAtHome_CancelBooking -->
+      </class> <!-- BookGroomingAtHome_Reschedule -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -19,20 +19,22 @@ public class ShopByConcern {
 		}
 	
 	private void clickbyconcern(WebDriver driver) throws InterruptedException {
-		int indexItem = 122;
+		int indexItem = 111;
 		for (int i = 0; i <=3; i++) {
+			//click on Shop
 			driver.findElement(By.xpath("//div[@class='page-nav-section']//div[2]/div/div/nav/ul")).click();
-			Thread.sleep(3000);
+			Thread.sleep(3000);			
 			driver.findElement(By.xpath("//ul[contains(@class,'level0 submenu amtheme-menu-flex')]/li[3]/a[1]/span[2]")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.id("ui-id-"+indexItem)).click();
+			Thread.sleep(2000);
 			indexItem++;
 			driver.navigate().back();
 			Thread.sleep(2000);
 		}
 	}
 	private void clickByBrand(WebDriver driver) throws InterruptedException {
-		int indexItem = 126;
+		int indexItem = 115;
 		for (int j = 0; j <=18; j++) {
 			driver.findElement(By.xpath("//div[@class='page-nav-section']//div[2]/div/div/nav/ul")).click();
 			Thread.sleep(3000);
@@ -40,6 +42,7 @@ public class ShopByConcern {
 			Thread.sleep(2000);
 			try {
 			driver.findElement(By.id("ui-id-"+indexItem)).click();
+			Thread.sleep(2000);
 			indexItem++;
 			}
 			catch(Exception e) {

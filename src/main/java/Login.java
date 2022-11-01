@@ -15,7 +15,7 @@ public class Login {
 		{
 			
 			driver.findElement(By.xpath("//div[@class='mobile-only']/li/a/img")).click();
-			driver.findElement(By.xpath("//*[@id=\"social_login_email\"]")).sendKeys("9759436631");
+			driver.findElement(By.xpath("//*[@id=\"social_login_email\"]")).sendKeys("9759436633");
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//*[@id=\"bnt-auth-mobile\"]")).click();
 			Thread.sleep(2000);
@@ -30,14 +30,14 @@ public class Login {
 	public static void login(WebDriver driver) throws InterruptedException {
 	
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		String baseUrl = "https://preprod.zigly.com/";
 		driver.get(baseUrl);
-		Thread.sleep(2000);//*[@id="html-body"]/div[4]/header/div[2]/div[2]/div[3]/li
+		Thread.sleep(2000);//*[@id="html-body"]/div[5]/header/div[2]/ul/li[2]
 		driver.manage().window().maximize();
-		WebElement passwordElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"html-body\"]/div[4]/header/div[2]/ul/li[2]/a/img")));
+		WebElement passwordElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='header content']//ul/li[2]")));
 	    passwordElement.click();
-		driver.findElement(By.xpath("//*[@id=\"social_login_email\"]")).sendKeys("9759436631");
+		driver.findElement(By.xpath("//*[@id=\"social_login_email\"]")).sendKeys("9759436633");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@id=\"bnt-auth-mobile\"]")).click();
 		Thread.sleep(2000);

@@ -19,8 +19,8 @@ public class magento {
 	@Test
 	public void Sales_Order() throws Exception 
 	{
-		driver.findElement(By.id("username")).sendKeys("qazigly");
-		driver.findElement(By.id("login")).sendKeys("qazigly@123");
+		driver.findElement(By.id("username")).sendKeys("keerti");
+		driver.findElement(By.id("login")).sendKeys("test@123");
 		driver.findElement(By.xpath("//div[@class='actions']/button")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//*[@id=\"menu-magento-sales-sales\"]/a")).click();

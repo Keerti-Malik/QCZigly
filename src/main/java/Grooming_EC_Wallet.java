@@ -80,6 +80,7 @@ public class Grooming_EC_Wallet {
 				DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
 				Date today = Calendar.getInstance().getTime();
 				String date = dateFormat.format(today);
+				System.out.println(date);
 				Thread.sleep(2000);
 		// Select time
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"grooming-timeslot\"]/ol/li[15]")))
@@ -101,33 +102,29 @@ public class Grooming_EC_Wallet {
 		// click on Make Payment
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='booking-payment']/button"))).click();
 		Thread.sleep(2000);
-		// move to payment page
-		driver.switchTo().frame(1);
-		Thread.sleep(4000);
-		js.executeScript("window.scrollTo(0,100)");
-		// click on netbanking
-		driver.findElement(By.xpath("//div[@class='methods-block']/div/button[3]")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//div[@id='bank-item-UTIB']")).click();
-		js.executeScript("window.scrollTo(0,100)");
-		Thread.sleep(2000);
-		String parentHandle = driver.getWindowHandle();
-		System.out.println("Parent Window" + parentHandle);
-		Thread.sleep(3000);
-		// click on pay amount
-		driver.findElement(By.id("footer")).click();
-		Thread.sleep(4000);
-		Set<String> handles = driver.getWindowHandles();
-		for (String handle : handles) {
-			// System.out.println(handle);
-			if (!handle.equals(parentHandle)) {
-				driver.switchTo().window(handle);
-				String a = driver.getTitle();
-				System.out.print(a);
-				driver.findElement(By.xpath("/html/body/form/button[1]")).click();
-
-			}
-		}
+		//move to payment page
+	     driver.switchTo().frame(1);
+	     Thread.sleep(2000);
+	     //select payment mode
+	     driver.findElement(By.xpath("//div[@class='methods-block']/div/button[3]/div")).click();
+	     //Thread.sleep(2000);
+	     driver.findElement(By.xpath("//div[@id='bank-item-UTIB']")).click();
+	     Thread.sleep(2000);
+	    String parentHandle= driver.getWindowHandle();
+	     System.out.println("Parent Window"+parentHandle);
+	     js.executeScript("window.scrollTo(0,100)");
+	     driver.findElement(By.xpath("//button[@id='redesign-v15-cta']")).click();
+	     Thread.sleep(4000);
+	     Set<String> handles= driver.getWindowHandles();
+	     for(String handle:handles) {
+	    	 System.out.println(handle);
+	    	 if(!handle.equals(parentHandle)) {
+	    		 driver.switchTo().window(handle);
+	    		 String a=driver.getTitle();
+	    		 System.out.print(a);
+	    		 driver.findElement(By.xpath("/html/body/form/button[1]")).click();	
+	    	 }
+	     }
 
 	}
 }

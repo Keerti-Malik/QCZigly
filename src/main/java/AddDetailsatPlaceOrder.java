@@ -18,7 +18,7 @@ public class AddDetailsatPlaceOrder {
 		int phn = 37;
 		int email = 16;
 		//int street = 1;
-		for (int i = 0; i <= 1; i++)
+		for (int i = 0; i <= 0; i++)
 		{
 			
 				System.setProperty("webdriver.chrome.driver", "E:\\chromedriver\\chromedriver.exe");
@@ -54,7 +54,7 @@ public class AddDetailsatPlaceOrder {
 				Thread.sleep(4000);
 				// enter mobile no.
 				driver.findElement(By.xpath("//div[@class='control customrequired']/input[@name='mobilenumber']"))
-						.sendKeys("88512645" + phn);
+						.sendKeys("9759436632" + phn);
 				phn++;
 				Thread.sleep(2000);
 				// Enter name
@@ -88,7 +88,7 @@ public class AddDetailsatPlaceOrder {
 				WebElement we = driver
 						.findElement(By.xpath("//div[@class='control _with-tooltip']/input[@name='username']"));
 				we.clear();
-				we.sendKeys("keerti.malik" + email + "@abc.com");
+				we.sendKeys("keerti.malik" + email + "@zigly.com");
 				email++;
 				// click on Palce Order
 				Thread.sleep(5000);

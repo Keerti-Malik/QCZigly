@@ -25,7 +25,7 @@ public class MagentoWriteReview {
 		System.setProperty("webdriver.chrome.driver", "E:\\chromedriver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get(
-				"https://www.zigly.com/admin_1ep93n/admin/index/index/key/4ee1764d8e232ef3beda7932914964777e5f2e96cabc55398522da035fb90a8a/");
+				"https://preprod.zigly.com/admin/admin/index/index/key/8eb97891d87c711a051991a9fc5183a2d064798ae927b9539364986540b1121b/");
 		driver.manage().window().maximize();
 	}
 
@@ -52,7 +52,7 @@ public class MagentoWriteReview {
 		driver.findElement(By.xpath("//li[@class='item-catalog-reviews-ratings-reviews-all    level-2']/a")).click();
 		Thread.sleep(1000);
 
-		for (int i =0; i <= 49; i++) {
+		for (int i =0; i <= 0; i++) {
 			// click on new review
 			driver.navigate().refresh();
 			wait.until(ExpectedConditions

@@ -25,14 +25,16 @@ WebDriver driver;
 		driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[4]/div/div[1]")).click();
         //click on product
 	     driver.findElement(By.xpath("//*[@id='amasty-shopby-product-list']/div[2]/ol/li[1]/div/div[1]/a/span/span/img")).click();
-	     Thread.sleep(3000);
+	     Thread.sleep(4000);
 	     //click on heart icon
-	     driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[2]/div/div[1]/div[1]/a[1]")).click();
+	     driver.findElement(By.xpath("//div[@class=\"amtheme-product-wrap\"]/div/a[@class='action towishlist']")).click();
 	     //click on user logo
-	     driver.findElement(By.xpath("//*[@id=\"html-body\"]/div[3]/header/div[2]/ul/li[2]")).click();
+	     Thread.sleep(2000);
+	     driver.findElement(By.xpath("//ul[@class='header-links']/li[2]")).click();
+	     Thread.sleep(3000);
 			//select your orders
 			List<WebElement> list= driver.findElements(By.xpath("//div[@class='dropdown-options']/ul/li/a"));
-		    for(int i=0; i<list.size();i++) 
+		    for(int i=0; i<list.size();i++)
 		    {
 		    if (list.get(i).getText().contains("Wishlist")) {
 		    		list.get(i).click();

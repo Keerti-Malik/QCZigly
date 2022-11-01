@@ -96,7 +96,7 @@ public class AllLinksClickable {
 		js.executeScript("window.scrollTo(0,150)");
 		   driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[8]/div[2]/div[3]")).click();
 		   String currenturl7=driver.getCurrentUrl();
-			String expectedurl7="https://preprod.zigly.com/shop/dogs/dog-treats.html";
+			String expectedurl7="https://preprod.zigly.com/shop/zigly-my-pet-days.html?brand=2921&cat=382";
 			Assert.assertEquals(currenturl7, expectedurl7);
 			System.out.println(currenturl7);
 			Thread.sleep(2000);
@@ -106,7 +106,7 @@ public class AllLinksClickable {
 		js.executeScript("window.scrollTo(0,150)");
 		driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[8]/div[2]/div[4]")).click();
 	    String currenturl8=driver.getCurrentUrl();
-		String expectedurl8="https://preprod.zigly.com/shop/dogs/dog-toys.html";
+		String expectedurl8="https://preprod.zigly.com/shop/zigly-my-pet-days.html?cat=383";
 		Assert.assertEquals(currenturl8, expectedurl8);
 		System.out.println(currenturl8);
 		Thread.sleep(2000);
@@ -115,7 +115,7 @@ public class AllLinksClickable {
 		js.executeScript("window.scrollTo(0,150)");
 	    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[8]/div[2]/div[5]")).click();
 		String currenturl9=driver.getCurrentUrl();
-	    String expectedurl9="https://preprod.zigly.com/shop/dogs/bowls-feeders-and-food-mats.html";
+	    String expectedurl9="https://preprod.zigly.com/shop/dogs/bundles-offer.html";
 	    Assert.assertEquals(currenturl9, expectedurl9);
 		System.out.println(currenturl9);
 		Thread.sleep(1000);		
@@ -175,10 +175,10 @@ public class AllLinksClickable {
 				Thread.sleep(1000);		
 				driver.navigate().back();
 	//link added			
-				js.executeScript("window.scrollTo(0,200)");//*[@id="maincontent"]/div[3]/div/div[10]/div/div/div[2]/a/picture/img
-			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[10]/div/div/div[2]/a")).click();
+				js.executeScript("window.scrollTo(0,200)");//*[@id="maincontent"]/div[3]/div/div[11]/div/div/div[2]/a/img
+			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[11]/div/div/div[2]/a")).click();
 				String currenturl152=driver.getCurrentUrl();
-			    String expectedurl152="https://preprod.zigly.com/searchtap/results?q=earthborn";
+			    String expectedurl152="https://preprod.zigly.com/brand/pedigree";
 			    Assert.assertEquals(currenturl152, expectedurl152);
 				System.out.println(currenturl152);
 				Thread.sleep(1000);		
@@ -186,7 +186,7 @@ public class AllLinksClickable {
 	
 		//link19
 				js.executeScript("window.scrollTo(0,200)");//*[@id="maincontent"]/div[3]/div/div[10]/div/div/div[3]
-			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[10]/div/div/div[3]")).click();
+			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[11]/div/div/div[3]")).click();
 				String currenturl18=driver.getCurrentUrl();
 			    String expectedurl18="https://preprod.zigly.com/brand/royal-canin";
 			    Assert.assertEquals(currenturl18, expectedurl18);
@@ -195,7 +195,7 @@ public class AllLinksClickable {
 				driver.navigate().back();
 		//link20
 				js.executeScript("window.scrollTo(0,200)");//*[@id="maincontent"]/div[3]/div/div[10]/div/div/div[4]
-			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[10]/div/div/div[4]")).click();
+			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[11]/div/div/div[4]")).click();
 				String currenturl19=driver.getCurrentUrl();
 			    String expectedurl19="https://preprod.zigly.com/brand/waudog";
 			    Assert.assertEquals(currenturl19, expectedurl19);
@@ -204,7 +204,7 @@ public class AllLinksClickable {
 				driver.navigate().back();
 		//link21
 				js.executeScript("window.scrollTo(0,200)");
-			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[10]/div/div/div[5]")).click();
+			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[11]/div/div/div[5]")).click();
 				String currenturl20=driver.getCurrentUrl();
 			    String expectedurl20="https://preprod.zigly.com/beboji-collection";
 			    Assert.assertEquals(currenturl20, expectedurl20);
@@ -213,7 +213,7 @@ public class AllLinksClickable {
 				driver.navigate().back();
 		//link22
 				js.executeScript("window.scrollTo(0,200)");
-			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[10]/div/div/div[6]")).click();
+			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[11]/div/div/div[6]")).click();
 				String currenturl21=driver.getCurrentUrl();
 			    String expectedurl21="https://preprod.zigly.com/brand/jerhigh";
 			    Assert.assertEquals(currenturl21, expectedurl21);
@@ -222,7 +222,7 @@ public class AllLinksClickable {
 				driver.navigate().back();
 		//link23
 				js.executeScript("window.scrollTo(0,200)");
-			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[10]/div/div/div[7]")).click();
+			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[11]/div/div/div[7]")).click();
 				String currenturl22=driver.getCurrentUrl();
 			    String expectedurl22="https://preprod.zigly.com/brand/chip-chops";
 			    Assert.assertEquals(currenturl22, expectedurl22);
@@ -231,7 +231,7 @@ public class AllLinksClickable {
 				driver.navigate().back();
 		//link24
 				js.executeScript("window.scrollTo(0,200)");
-			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[10]/div/div/div[8]")).click();
+			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[11]/div/div/div[8]")).click();
 				String currenturl23=driver.getCurrentUrl();
 			    String expectedurl23="https://preprod.zigly.com/brand/dogsee-chew";
 			    Assert.assertEquals(currenturl23, expectedurl23);
@@ -240,7 +240,7 @@ public class AllLinksClickable {
 				driver.navigate().back();
 		//link25
 				js.executeScript("window.scrollTo(0,200)");
-			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[10]/div/div/div[9]")).click();
+			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[11]/div/div/div[9]")).click();
 				String currenturl24=driver.getCurrentUrl();
 			    String expectedurl24="https://preprod.zigly.com/brand/Bennys-Bowl";
 			    Assert.assertEquals(currenturl24, expectedurl24);
@@ -249,35 +249,36 @@ public class AllLinksClickable {
 				driver.navigate().back();
 		//link26
 				js.executeScript("window.scrollTo(0,200)");
-			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[10]/div/div/div[10]")).click();
+			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[11]/div/div/div[10]")).click();
 				String currenturl25=driver.getCurrentUrl();
 			    String expectedurl25="https://preprod.zigly.com/brand/kong";
 			    Assert.assertEquals(currenturl25, expectedurl25);
 				System.out.println(currenturl25);
 				Thread.sleep(1000);		
 				driver.navigate().back();
+				
 		//link added
 				js.executeScript("window.scrollTo(0,200)");//*[@id="maincontent"]/div[3]/div/div[10]/div/div/div[11]
-			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[10]/div/div/div[11]")).click();
+			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[11]/div/div/div[11]")).click();
 				String currenturl153=driver.getCurrentUrl();
-			    String expectedurl153="https://preprod.zigly.com/brand/captain-zack";
+			    String expectedurl153="https://preprod.zigly.com/brand/me-o";
 			    Assert.assertEquals(currenturl153, expectedurl153);
 				System.out.println(currenturl153);
 				Thread.sleep(1000);		
 				driver.navigate().back();
-		//link27
+		/*//link27
 				js.executeScript("window.scrollTo(0,200)");
-			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[10]/div/div/div[12]")).click();
+			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[11]/div/div/div[12]")).click();
 				String currenturl26=driver.getCurrentUrl();
 			    String expectedurl26="https://preprod.zigly.com/brand/Orijen";
 			    Assert.assertEquals(currenturl26, expectedurl26);
 				System.out.println(currenturl26);
 				Thread.sleep(1000);		
-				driver.navigate().back();
-		/*//link28
+				driver.navigate().back();*/
+		//link28
 				js.executeScript("window.scrollTo(0,210)");
 				Thread.sleep(1000);
-			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[10]/div/div/div[12]")).click();
+			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[11]/div/div/div[12]")).click();
 				String currenturl27=driver.getCurrentUrl();
 			    String expectedurl27="https://qa.zigly.com/brand/gigwi";
 			    Assert.assertEquals(currenturl27, expectedurl27);
@@ -287,22 +288,25 @@ public class AllLinksClickable {
 		//link29
 				js.executeScript("window.scrollTo(0,210)");
 				Thread.sleep(1000);
-			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[10]/div/div/div[13]")).click();
+			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[11]/div/div/div[13]")).click();
 				String currenturl28=driver.getCurrentUrl();
 			    String expectedurl28="https://qa.zigly.com/brand/trixie";
 			    Assert.assertEquals(currenturl28, expectedurl28);
 				System.out.println(currenturl28);
 				Thread.sleep(1000);		
-				driver.navigate().back();*/
+				driver.navigate().back();
+	}
 	//link18
-				js.executeScript("window.scrollTo(0,200)");//*[@id="maincontent"]/div[3]/div/div[10]/div/div/div[13]
+				/*	js.executeScript("window.scrollTo(0,200)");//*[@id="maincontent"]/div[3]/div/div[10]/div/div/div[13]
 			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[10]/div/div/div[13]")).click();
 				String currenturl17=driver.getCurrentUrl();
 			    String expectedurl17="https://preprod.zigly.com/brand/Pedigree";
 			    Assert.assertEquals(currenturl17, expectedurl17);
 				System.out.println(currenturl17);
 				Thread.sleep(1000);		
-				driver.navigate().back();
+				driver.navigate().back();*/
+				@Test(priority=3)
+				public void grooming_services_link() throws InterruptedException {
 		//link30
 				js.executeScript("window.scrollTo(0,210)");
 				Thread.sleep(1000);
@@ -335,7 +339,7 @@ public class AllLinksClickable {
 				driver.navigate().back();
 		//link33
 				js.executeScript("window.scrollTo(0,210)");
-				Thread.sleep(1000);//*[@id="maincontent"]/div[3]/div/div[12]/div/div[4]/a[1]/button
+				Thread.sleep(1000);//*[@id="maincontent"]/div[3]/div/div[14]/div/div[1]/div[2]/div[1]/div[1]/a/img
 			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[12]/div/div[4]/a[1]")).click();
 				String currenturl32=driver.getCurrentUrl();
 			    String expectedurl32="https://preprod.zigly.com/experience-center";
@@ -343,10 +347,13 @@ public class AllLinksClickable {
 				System.out.println(currenturl32);
 				Thread.sleep(1000);		
 				driver.navigate().back();
+				}
+				@Test(priority=4)
+				public void health_tip_link() throws InterruptedException {
 		//link34
 				js.executeScript("window.scrollTo(0,250)");
 				Thread.sleep(1000);//*[@id="maincontent"]/div[3]/div/div[13]/div/div[1]/div[2]/div[1]/div[1]
-			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[13]/div/div[1]/div[2]/div[1]/div[1]")).click();
+			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[14]/div/div[1]/div[2]/div[1]/div[1]")).click();
 				String currenturl33=driver.getCurrentUrl();
 			    String expectedurl33="https://preprod.zigly.com/blog/post/pet-parenting-101-stage-wise-guide-to-taking-care-of-the-pet-mom-to-be.html";
 			    Assert.assertEquals(currenturl33, expectedurl33);
@@ -356,7 +363,7 @@ public class AllLinksClickable {
 		//link35
 				js.executeScript("window.scrollTo(0,250)");
 				Thread.sleep(1000);
-			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[13]/div/div[1]/div[2]/div[2]/div[1]")).click();
+			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[14]/div/div[1]/div[2]/div[2]/div[1]")).click();
 				String currenturl34=driver.getCurrentUrl();
 			    String expectedurl34="https://preprod.zigly.com/blog/post/how-do-you-tell-the-difference-between-ticks-fleas.html";
 			    Assert.assertEquals(currenturl34, expectedurl34);
@@ -366,7 +373,7 @@ public class AllLinksClickable {
 		//link36
 				js.executeScript("window.scrollTo(0,250)");
 				Thread.sleep(1000);
-			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[13]/div/div[1]/div[2]/div[3]/div[1]")).click();
+			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[14]/div/div[1]/div[2]/div[3]/div[1]")).click();
 				String currenturl35=driver.getCurrentUrl();
 			    String expectedurl35="https://preprod.zigly.com/blog/post/what-to-expect-from-a-tick-and-flea-treatment-package.html";
 			    Assert.assertEquals(currenturl35, expectedurl35);
@@ -376,7 +383,7 @@ public class AllLinksClickable {
 		//link37
 				js.executeScript("window.scrollTo(0,250)");
 				Thread.sleep(1000);//*[@id="maincontent"]/div[3]/div/div[13]/div/div[2]
-			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[13]/div/div[2]/a")).click();
+			    driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[14]/div/div[2]/a")).click();
 				String currenturl36=driver.getCurrentUrl();
 			    String expectedurl36="https://preprod.zigly.com/blog.html";
 			    Assert.assertEquals(currenturl36, expectedurl36);
@@ -423,6 +430,9 @@ public class AllLinksClickable {
 				System.out.println(currenturl40);
 				Thread.sleep(1000);		
 				driver.navigate().back();
+				}
+				@Test(priority=3)
+				public void footerlink_link() throws InterruptedException {
 		//link42--Services
 				js.executeScript("window.scrollTo(0,270)");
 				Thread.sleep(1000);
@@ -570,6 +580,7 @@ public class AllLinksClickable {
 			    driver.findElement(By.xpath("//*[@id=\"html-body\"]/div[3]/footer/div[3]/div/div/div/div[2]/ul/li[5]/a")).click();
 				Thread.sleep(1000);		
 				driver.navigate().to("https://preprod.zigly.com/");
+				
 	}
 	
 	

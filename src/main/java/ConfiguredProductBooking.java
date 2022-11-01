@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 public class ConfiguredProductBooking
 {
 
-	@Test(invocationCount=10)
+	@Test(invocationCount=1)
 	public void searchItem() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver","E:\\chromedriver\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
@@ -35,10 +35,10 @@ public class ConfiguredProductBooking
         Thread.sleep(4000);
         //click on product size
         driver.findElement(By.xpath("//div[@class='swatch-attribute-options clearfix']/div[1]")).click();
-        //click on cart
+        //click on Add to cart
         driver.findElement(By.id("product-addtocart-button")).click();
-        Thread.sleep(2000);
-        //click on cart
+        Thread.sleep(3000);
+        //click on cart logo
         driver.findElement(By.xpath("//div[@class='minicart-wrapper amtheme-header-icon']/a")).click();
         Thread.sleep(2000);
         //click on checkout
@@ -48,19 +48,23 @@ public class ConfiguredProductBooking
         driver.findElement(By.xpath("//a[@class='action primary checkout']")).click();
         Thread.sleep(3000);
         driver.findElement(By.xpath("//*[@id=\"chk-contct\"]/div[2]/a")).click();
+        Thread.sleep(3000);
         Login.afterlogin(driver);
         Thread.sleep(4000);
         //select address
         List<WebElement> addresses=driver.findElements(By.xpath("//div[@class='shipping-address-items']/div/div/button"));
         for(int j=0; j<addresses.size(); j++)
         {
-        	addresses.get(0).click();
+        	addresses.get(1).click();
+        	Thread.sleep(1000);
         }
+        Thread.sleep(3000);
+        js.executeScript("window.scrollTo(0,300)");
         Thread.sleep(2000);
-       // js.executeScript("window.scrollTo(0,200)");
         //click on place order
         driver.findElement(By.xpath("//*[@id=\"shipping-method-buttons-container\"]/div/button")).click();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
+        js.executeScript("window.scrollTo(0,300)");
       driver.findElement(By.xpath("//*[@id=\"checkout-payment-method-load\"]/div/div/div[2]/div[2]/div[4]/div/button")).click();
         Thread.sleep(4000);
 	    //move to payment page
@@ -86,8 +90,7 @@ public class ConfiguredProductBooking
 	    		 driver.findElement(By.xpath("/html/body/form/button[1]")).click();	
 	    	 }
 	     }
-	     Thread.sleep(1000);
-	    driver.close();
+	     
 	}
 
 

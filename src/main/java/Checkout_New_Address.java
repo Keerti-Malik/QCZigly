@@ -2,7 +2,9 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,10 +24,12 @@ public class Checkout_New_Address
 		Login.login(driver);
 	    Thread.sleep(2000);
 	    //click on Dog
-	    driver.findElement(By.xpath("//div[@class='static-cards']/div[1]")).click();
+	   WebElement selectproduct= driver.findElement(By.id("search"));
+	   selectproduct.sendKeys("beboji Charlie Sheen Dog Shirt");
+	   selectproduct.sendKeys(Keys.ENTER);
 	  //Click on Addtocart
 	    Thread.sleep(2000);
-	    driver.findElement(By.xpath("//button[contains(@class,'action tocart primary')]")).click();
+	    driver.findElement(By.xpath("//div[@class='st-inner-box']/div[4]/button")).click();
 	  //  Select Size
 	  wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='swatch-option text']"))).click();
 	  Thread.sleep(2000);
@@ -46,6 +50,8 @@ public class Checkout_New_Address
 	    	   Thread.sleep(3000);
 	    	   driver.findElement(By.xpath("//ul[@class='checkout methods items checkout-methods-items']/li/a[1]")).click();
 	       }
+	       JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollTo(0,150)");
 	       //click on New Address
 	       wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='new-address-popup']/button/span"))).click();
 	       //Enter Street

@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 public class MobileView {
-	// WebDriver driver=new ChromeDriver();
+	
 
 	@Test(invocationCount = 1)
 	public void searchwithfilters() throws Exception {
@@ -32,7 +32,7 @@ public class MobileView {
 		List<WebElement> list = driver
 				.findElements(By.xpath("//ul[contains(@class,'level2 submenu ui-menu ui-widget')]//li//a"));
 		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).getText().contains("Dog Chew Toys")) {
+			if (list.get(i).getText().contains("Chew Toys")) {
 				list.get(i).click();
 				break;
 			}
@@ -99,7 +99,7 @@ public class MobileView {
 			we.get(0).click();
 			Thread.sleep(2000);
 		}
-		driver.findElement(By.id("discount-code")).sendKeys("ZiglyTest100");
+		driver.findElement(By.id("discount-code")).sendKeys("ZiglyTest500");
 		Thread.sleep(1000);
 		// click on apply
 		driver.findElement(By.xpath("//*[@id=\"discount-form\"]/div[2]/div/button")).click();
@@ -120,27 +120,28 @@ public class MobileView {
 		}
 
 		Thread.sleep(4000);
-		// move to payment page
-		driver.switchTo().frame(0);
-		// click on netbanking
-		driver.findElement(By.xpath("//div[@class='methods-block']/div/button[3]")).click();
-		// select bank
-		driver.findElement(By.id("bank-item-UTIB")).click();
-		Thread.sleep(2000);
-		String parentHandle = driver.getWindowHandle();
-		System.out.println("Parent Window" + parentHandle);
-		driver.findElement(By.id("footer")).click();
-		Thread.sleep(4000);
-		Set<String> handles = driver.getWindowHandles();
-		for (String handle : handles) {
-			System.out.println(handle);
-			if (!handle.equals(parentHandle)) {
-				driver.switchTo().window(handle);
-				String a = driver.getTitle();
-				System.out.print(a);
-				driver.findElement(By.xpath("/html/body/form/button[1]")).click();
-
-			}
+		//move to payment page
+	     driver.switchTo().frame(1);
+	     Thread.sleep(2000);
+	     //select payment mode
+	     driver.findElement(By.xpath("//div[@class='methods-block']/div/button[3]/div/div")).click();
+	     //Thread.sleep(2000);
+	     driver.findElement(By.xpath("//div[@id='bank-item-UTIB']")).click();
+	     Thread.sleep(2000);
+	    String parentHandle= driver.getWindowHandle();
+	     System.out.println("Parent Window"+parentHandle);
+	     js.executeScript("window.scrollTo(0,100)");
+	     driver.findElement(By.xpath("//button[@id='redesign-v15-cta']")).click();
+	     Thread.sleep(4000);
+	     Set<String> handles= driver.getWindowHandles();
+	     for(String handle:handles) {
+	    	 System.out.println(handle);
+	    	 if(!handle.equals(parentHandle)) {
+	    		 driver.switchTo().window(handle);
+	    		 String a=driver.getTitle();
+	    		 System.out.print(a);
+	    		 driver.findElement(By.xpath("/html/body/form/button[1]")).click();	
+	    	 }
 		}
 
 	}
