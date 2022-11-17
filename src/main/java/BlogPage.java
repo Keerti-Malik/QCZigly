@@ -38,7 +38,7 @@ public class BlogPage
 	    	list1.get(0).click();
 	    	driver.navigate().back();
 	      }
-	    // click on thenext page
+	    // click on the next page
 	    js.executeScript("window.scrollTo(0,40)");
 	    Thread.sleep(3000);
 	     driver.findElement(By.xpath("//nav[@class='pages']/a[@title='Next']")).click();

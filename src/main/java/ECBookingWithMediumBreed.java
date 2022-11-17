@@ -53,7 +53,7 @@ public class ECBookingWithMediumBreed {
 		for (int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i).getText());
 			Thread.sleep(1000);
-			list.get(1).click();
+			list.get(2).click();
 			break;
 		}
 		Thread.sleep(2000);

@@ -14,7 +14,7 @@ public class Checkout_New_Address
 {
 
 	@Test()
-	public void searchwithfilters() throws Exception {
+	public void addnewaddress_shippingpage() throws Exception {
 		System.setProperty("webdriver.chrome.driver","E:\\chromedriver\\chromedriver.exe");
 		WebDriver driver=new ChromeDriver();
 		//JavascriptExecutor js= (JavascriptExecutor)driver;
@@ -66,7 +66,7 @@ public class Checkout_New_Address
 	       //Click on Save Address
 	       driver.findElement(By.xpath("//div[@class='amtheme-address-toolbar']/button[2]")).click();
 	       //click on Palce Order
-	       Thread.sleep(2000);
+	       Thread.sleep(3000);
 	       driver.findElement(By.xpath("//div[@id='shipping-method-buttons-container']/div/button")).click();
 	       
 	}

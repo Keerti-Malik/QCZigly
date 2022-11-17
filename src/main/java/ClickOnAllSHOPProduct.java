@@ -26,12 +26,12 @@ public class ClickOnAllSHOPProduct {
 		//accept notification
 		driver.findElement(By.xpath("//*[@id='optInText']")).click();
 		Thread.sleep(2000);
-		clickonDog(driver);
+		//clickonDog(driver);
 		clickonCat(driver);
 		}
 	
 	private void clickonDog(WebDriver driver) throws InterruptedException {
-		int indexItem = 26;
+		int indexItem = 21;
 		for(int i=0; i<=63; i++ ) {
 		    driver.findElement(By.xpath("//div[@class='page-nav-section']//div[2]/div/div/nav/ul")).click();
 			Thread.sleep(2000);
@@ -41,11 +41,11 @@ public class ClickOnAllSHOPProduct {
 		    	list1.get(0).click();
 		    	driver.navigate().back();
 		    	indexItem++;
-		
+		Thread.sleep(1000);
 		}
 	}
 	private void clickonCat(WebDriver driver) throws InterruptedException {
-		int indexItem = 98;
+		int indexItem = 87;
 		for(int i=0; i<=23; i++ ) 
 		{
 			//click on SHOP
@@ -69,6 +69,7 @@ public class ClickOnAllSHOPProduct {
 		    	list1.get(0).click();
 		    	driver.navigate().back();
 		    	indexItem++;
+		    	Thread.sleep(2000);
     
 		}
 	}

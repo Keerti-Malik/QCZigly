@@ -1,17 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-11-01T10:19:10Z" name="Default suite" finished-at="2022-11-01T10:19:53Z" duration-ms="42716">
+  <suite started-at="2022-11-16T12:14:19Z" name="Default suite" finished-at="2022-11-16T12:26:40Z" duration-ms="740787">
     <groups>
     </groups>
-    <test started-at="2022-11-01T10:19:10Z" name="Default test" finished-at="2022-11-01T10:19:53Z" duration-ms="42716">
-      <class name="BookGroomingAtHome_Reschedule">
-        <test-method signature="reschedulebooking()[pri:0, instance:BookGroomingAtHome_Reschedule@303cf2ba]" started-at="2022-11-01T10:19:10Z" name="reschedulebooking" finished-at="2022-11-01T10:19:53Z" duration-ms="42697" status="PASS">
+    <test started-at="2022-11-16T12:14:19Z" name="Default test" finished-at="2022-11-16T12:26:40Z" duration-ms="740787">
+      <class name="MobileView">
+        <test-method signature="searchwithfilters()[pri:0, instance:MobileView@303cf2ba]" started-at="2022-11-16T12:14:19Z" name="searchwithfilters" finished-at="2022-11-16T12:15:34Z" duration-ms="74876" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- reschedulebooking -->
-      </class> <!-- BookGroomingAtHome_Reschedule -->
+        </test-method> <!-- searchwithfilters -->
+        <test-method signature="searchwithfilters()[pri:0, instance:MobileView@303cf2ba]" started-at="2022-11-16T12:15:34Z" name="searchwithfilters" finished-at="2022-11-16T12:16:47Z" duration-ms="73676" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchwithfilters -->
+        <test-method signature="searchwithfilters()[pri:0, instance:MobileView@303cf2ba]" started-at="2022-11-16T12:16:47Z" name="searchwithfilters" finished-at="2022-11-16T12:18:01Z" duration-ms="73865" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchwithfilters -->
+        <test-method signature="searchwithfilters()[pri:0, instance:MobileView@303cf2ba]" started-at="2022-11-16T12:18:01Z" name="searchwithfilters" finished-at="2022-11-16T12:19:17Z" duration-ms="75515" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchwithfilters -->
+        <test-method signature="searchwithfilters()[pri:0, instance:MobileView@303cf2ba]" started-at="2022-11-16T12:19:17Z" name="searchwithfilters" finished-at="2022-11-16T12:20:30Z" duration-ms="73168" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchwithfilters -->
+        <test-method signature="searchwithfilters()[pri:0, instance:MobileView@303cf2ba]" started-at="2022-11-16T12:20:30Z" name="searchwithfilters" finished-at="2022-11-16T12:21:45Z" duration-ms="74717" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchwithfilters -->
+        <test-method signature="searchwithfilters()[pri:0, instance:MobileView@303cf2ba]" started-at="2022-11-16T12:21:45Z" name="searchwithfilters" finished-at="2022-11-16T12:22:57Z" duration-ms="72318" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchwithfilters -->
+        <test-method signature="searchwithfilters()[pri:0, instance:MobileView@303cf2ba]" started-at="2022-11-16T12:22:57Z" name="searchwithfilters" finished-at="2022-11-16T12:24:13Z" duration-ms="75691" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchwithfilters -->
+        <test-method signature="searchwithfilters()[pri:0, instance:MobileView@303cf2ba]" started-at="2022-11-16T12:24:13Z" name="searchwithfilters" finished-at="2022-11-16T12:25:26Z" duration-ms="73118" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchwithfilters -->
+        <test-method signature="searchwithfilters()[pri:0, instance:MobileView@303cf2ba]" started-at="2022-11-16T12:25:26Z" name="searchwithfilters" finished-at="2022-11-16T12:26:40Z" duration-ms="73801" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchwithfilters -->
+      </class> <!-- MobileView -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -1,17 +1,20 @@
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class ReturnOrder {
-	
-	WebDriver driver;
+public class WriteReview_OnOrder {
+WebDriver driver;
 	
 	@BeforeTest()
 	public void login() throws Exception
@@ -21,8 +24,9 @@ public class ReturnOrder {
 		Login.login(driver);
 	}
 	@Test
-	 public void navigateToYourOrder() throws Exception 
+	 public void writeReview() throws Exception 
 	{
+		JavascriptExecutor js=(JavascriptExecutor)driver;
 		//go to on profile logo
 		driver.findElement(By.xpath("//ul[@class='header-links']/li[2]")).click();
 		//select your orders
@@ -43,38 +47,32 @@ public class ReturnOrder {
 	    Thread.sleep(2000);
 	    driver.findElement(By.id("amreview-toform")).click();
 	    //select feedback start
-	    driver.findElement(By.xpath("//*[@id=\"Feedback_5_label\"]")).click();
+	    driver.findElement(By.xpath("//*[@id=\"Feedback_1_label\"]")).click();
 	    //write inside order summary
-	    driver.findElement(By.id("summary_field")).sendKeys("Good product");
+	    driver.findElement(By.id("summary_field")).sendKeys("ok");
 	    //write review
-	    driver.findElement(By.id("review_field")).sendKeys("Good Quality Product");
-	    Thread.sleep(1000);
+	    WebElement upload=driver.findElement(By.id("review_field"));
+	    upload.sendKeys("ok");
+	    Thread.sleep(2000);
+	    WebElement chooseFile = driver.findElement(By.xpath("//*[@id='review-form']/fieldset/div[4]/div/input"));
+	    js.executeScript("arguments[0].click();", chooseFile);
+		Robot rb = new Robot();
+		rb.setAutoDelay(4000);
+		StringSelection ss = new StringSelection("E:\\a1.png");
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+		rb.setAutoDelay(2000);
+		rb.keyPress(KeyEvent.VK_CONTROL);
+		rb.keyPress(KeyEvent.VK_V);
+		rb.keyRelease(KeyEvent.VK_CONTROL);
+		rb.keyRelease(KeyEvent.VK_V);
+		rb.keyPress(KeyEvent.VK_ENTER);
+		rb.keyRelease(KeyEvent.VK_ENTER);
+		
 	    //click on Send Review button
-	    driver.findElement(By.xpath("//div[@class='review-form-actions']/button")).click();
+		 WebElement send = driver.findElement(By.xpath("//div[@class='review-form-actions']/button"));
+		    js.executeScript("arguments[0].click();",send);
 	   WebElement we= driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[1]/div[2]/div/div/div/div"));
 	  System.out.println(we.getText());
-	  driver.navigate().back();
-	  Thread.sleep(1000);
-	  driver.navigate().back();
-	  Thread.sleep(3000);
-	    //click on return button
-	   WebElement we1=driver.findElement(By.xpath("//div[@class='order-details-items ordered']/div/div[4]"));
-	    String s= we1.getText();
-	    if(s.equals("RETURN")) {	
-	    we1.click();
-	    //System.out.println(we.getText());
-	    //Select reason for return
-	    Select reason= new Select(driver.findElement(By.id("return")));
-	    reason.selectByIndex(3);
-	    //add return comment
-	    driver.findElement(By.id("returns")).sendKeys("I want to return this order.");
-	    //click on submit
-	    driver.findElement(By.xpath("//button[@class='action primary order-return-reason']/span")).click();
-	    JavascriptExecutor js= (JavascriptExecutor)driver;
-	    js.executeScript("window.scrollTo(0,150)");
-	    //print submssion message
-	   WebElement webe= driver.findElement(By.xpath("//div[@class='messages']/div/div"));
-	  System.out.println(webe.getText());
-	    }
+
 	}
 }

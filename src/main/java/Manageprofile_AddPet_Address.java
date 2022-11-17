@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class Manageprofile {
+public class Manageprofile_AddPet_Address {
 	@Test
 	public void manageProfile() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "E:\\chromedriver\\chromedriver.exe");
@@ -55,8 +55,8 @@ public class Manageprofile {
 		driver.findElement(By.xpath("//div[@class='control']/input[@id='street_1']")).sendKeys("79/1 -A royal");
 		driver.findElement(By.id("city")).sendKeys("Panaji");
 		Thread.sleep(2000);
-		Select fruits = new Select(driver.findElement(By.id("region_id")));
-		fruits.selectByVisibleText("Goa");
+		Select region = new Select(driver.findElement(By.id("region_id")));
+		region.selectByVisibleText("Goa");
 		driver.findElement(By.id("zip")).sendKeys("403001");
 		driver.findElement(By.xpath("//*[@id=\"form-validate\"]/div/div[1]/button")).click();
 		Thread.sleep(2000);

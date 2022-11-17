@@ -46,7 +46,7 @@ public class ConfiguredProductBooking
         Thread.sleep(2000);
         //click on place order
         driver.findElement(By.xpath("//a[@class='action primary checkout']")).click();
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         driver.findElement(By.xpath("//*[@id=\"chk-contct\"]/div[2]/a")).click();
         Thread.sleep(3000);
         Login.afterlogin(driver);

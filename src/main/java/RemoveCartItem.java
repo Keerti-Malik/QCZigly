@@ -25,29 +25,12 @@ public class RemoveCartItem {
 				driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[4]/div/div[1]")).click();
 		        //click on product
 				List<WebElement> product=driver.findElements(By.xpath(
-						"//div[@class='products wrapper grid products-grid']/ol/li/div/div/a"));
-				for(int j=0; j<product.size(); j++) {
-					product.get(0).click();
-					break;
+						"//div[@class='products wrapper grid products-grid']/ol/li/div/div[3]/div"));
+				for(int j=0; j<4; j++) {
+					product.get(j).click();
 				}
-			     //Select Size
-				 List<WebElement> size= driver.findElements(By.xpath("//div[@class='swatch-option text']"));
-				 if (size.size() > 0 && size.get(0).getText().equalsIgnoreCase("L")) {
-					 size.get(0).click();
-						Thread.sleep(2000);
-				 }
-				// Click on Add to Cart
-				    driver.findElement(By.id("product-addtocart-button")).click();
-				    Thread.sleep(2000);
-				    driver.navigate().back();
-				    List<WebElement> productlist=driver.findElements(By.xpath(
-							"//div[@class='products wrapper grid products-grid']/ol/li/div/div/a"));
-					for(int k=0; k<productlist.size(); k++) {
-						productlist.get(1).click();
-						break;
-					}
-					// Click on Add to Cart
-					    driver.findElement(By.id("product-addtocart-button")).click();
+			     Thread.sleep(2000);
+			
 			     //click on cart logo
 					    driver.findElement(By.xpath("//a[@class='action showcart']")).click();
 			        Thread.sleep(2000);          

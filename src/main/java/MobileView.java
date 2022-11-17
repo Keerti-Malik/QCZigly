@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 public class MobileView {
 	
 
-	@Test(invocationCount = 1)
+	@Test(invocationCount = 10)
 	public void searchwithfilters() throws Exception {
 		System.setProperty("webdriver.chrome.driver", "E:\\chromedriver\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();

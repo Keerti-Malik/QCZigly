@@ -70,6 +70,7 @@ public class ECBookingWithLargeBreed {
 			for(int j=0; j<itemSelect.size(); j++) {
 				itemSelect.get(2).click();
 			}
+			Thread.sleep(2000);
 			js.executeScript("window.scrollTo(0,200)");
 			list1.get(3).click();
 			break;

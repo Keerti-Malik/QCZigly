@@ -103,7 +103,7 @@ public class Grooming_EC_Wallet {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='booking-payment']/button"))).click();
 		Thread.sleep(2000);
 		//move to payment page
-	     driver.switchTo().frame(1);
+	     driver.switchTo().frame(2);
 	     Thread.sleep(2000);
 	     //select payment mode
 	     driver.findElement(By.xpath("//div[@class='methods-block']/div/button[3]/div")).click();
