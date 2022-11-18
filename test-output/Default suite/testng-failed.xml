@@ -3,11 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="MobileView">
+      <class name="WriteReview_OnOrder">
         <methods>
-          <include name="searchwithfilters"/>
+          <include name="writeReview"/>
+          <include name="login"/>
         </methods>
-      </class> <!-- MobileView -->
+      </class> <!-- WriteReview_OnOrder -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

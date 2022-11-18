@@ -21,7 +21,7 @@ public class ConfiguredProductBooking
 		System.setProperty("webdriver.chrome.driver","E:\\chromedriver\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		JavascriptExecutor js=(JavascriptExecutor) driver;
-		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(30));
+
         String baseUrl = "https://preprod.zigly.com/";
         driver.get(baseUrl);
         Thread.sleep(2000);

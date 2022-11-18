@@ -62,16 +62,16 @@ public class QuickbuyWithCOD_CancleOrder {
 				By.xpath("//*[@id=\"checkout-step-shipping\"]/div[1]/div/div/div[1]/div[1]/button"))).click();
 		// click on Place Order
 		Thread.sleep(2000);
-		driver.findElement(By.id("shipping-method-buttons-container")).click();
 		driver.findElement(By.xpath("//div[@id='shipping-method-buttons-container']/div[1]/button")).click();
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollTo(0,400)");
+		//select cash on delivery
 		WebElement button = driver
 				.findElement(By.xpath("//*[@id=\"checkout-payment-method-load\"]/div/div/div[3]/div[1]/label"));
 		button.click();
 		Thread.sleep(2000);
-		// click on CashOnDelivery button
+		// click on Place order
 		driver.findElement(
 				By.xpath("//*[@id=\"checkout-payment-method-load\"]/div/div/div[3]/div[2]/div[4]/div/button")).click();
 		// Click on pay

@@ -33,7 +33,7 @@ public class ProductBooking {
 		 Thread.sleep(2000);
 		 js.executeScript("window.scrollTo(0,250)");
 		 Thread.sleep(2000);
-		driver.findElement(By.id("//div[@class='st-action-button']/button")).click();
+		driver.findElement(By.xpath("//div[@class='st-action-button']/button")).click();
 		Thread.sleep(2000);
 		// click on cart logo
 		driver.findElement(By.xpath("//*[@id=\"html-body\"]/div[4]/header/div[2]/div[2]/div[2]/a/img")).click();
