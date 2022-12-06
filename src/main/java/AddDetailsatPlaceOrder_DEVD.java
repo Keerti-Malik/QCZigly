@@ -5,6 +5,7 @@ import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,41 +13,38 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-public class AddDetailsatPlaceOrder {
+public class AddDetailsatPlaceOrder_DEVD {
 	@Test()
 	public void addnewaddress() throws Exception {
 
-		int phn = 42;
-		int email = 21;
-		for (int i = 0; i <= 5; i++)
+		int phn = 65;
+		int email = 8;
+		for (int i = 0; i <= 4; i++)
 		{
 			
 				System.setProperty("webdriver.chrome.driver", "E:\\chromedriver\\chromedriver.exe");
 				WebDriver driver = new ChromeDriver();
-				driver.get("https://preprod.zigly.com/shop/for-cats.html");
+				driver.get("https://devd.zigly.com/shop/for-cats.html");
 				driver.manage().window().maximize();
 				JavascriptExecutor js= (JavascriptExecutor)driver;
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 				Thread.sleep(3000);
+				// click on first cat food image
+				try {
+					List<WebElement> catItem = driver
+							.findElements(By.xpath("//div[@id='amasty-shopby-product-list']/div/ol/li/div/div/a/span"));
+					for (int j = 0; j < catItem.size(); j++) {
+
+						catItem.get(0).click();
+		                   break;
+					}
+				} catch (StaleElementReferenceException ex) {
+					System.out.println(ex.toString());
+				}
+				Thread.sleep(2000);
+				// click on quick buy
+				driver.findElement(By.xpath("//div[@class='sparsh-buynow-view']/button")).click();
 				
-				searchByKey(driver, "IAMS Proactive Health Adult Large Breed Dry Dog Food");
-		        js.executeScript("window.scrollTo(0,100)");
-		        Thread.sleep(2000);
-		        //click on searching product
-		        driver.findElement(By.id("st-297-atc")).click();
-		        Thread.sleep(4000);
-		        //click on product size
-		        driver.findElement(By.xpath("//div[@class='swatch-attribute-options clearfix']/div[1]")).click();
-		        //click on Add to cart
-		        driver.findElement(By.id("product-addtocart-button")).click();
-		        Thread.sleep(3000);
-				 js.executeScript("window.scrollTo(0,250)");
-				//click on cart logo
-			        driver.findElement(By.xpath("//div[@class='minicart-wrapper amtheme-header-icon']/a")).click();
-				Thread.sleep(3000);
-				// click on checkout
-				driver.findElement(By.xpath("//a[@class='action secondary checkout']")).click();
-				Thread.sleep(3000);
 				// click on Place Order
 				try {
 					driver.findElement(By.xpath("//ul[@class='checkout methods items checkout-methods-items']/li/a[1]"))
@@ -64,13 +62,13 @@ public class AddDetailsatPlaceOrder {
 				Thread.sleep(2000);
 				// Enter name
 				WebElement we1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
-						"/html/body/div[4]/main/div[2]/div/div[4]/div[3]/ol/li[1]/div/div[3]/form/div[3]/div[1]/div/input")));
+						"/html/body/div[3]/main/div[2]/div/div[4]/div[3]/ol/li[1]/div/div[3]/form/div[3]/div[1]/div/input")));
 				we1.clear();
 				we1.sendKeys("KM");
 				// Thread.sleep(2000);
 				// enter street
 				WebElement we2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
-						"/html/body/div[4]/main/div[2]/div/div[4]/div[3]/ol/li[1]/div/div[3]/form/div[3]/fieldset/div/div[1]/div/input")));
+						"/html/body/div[3]/main/div[2]/div/div[4]/div[3]/ol/li[1]/div/div[3]/form/div[3]/fieldset/div/div[1]/div/input")));
 				Thread.sleep(1000);
 				// we2.clear();
 				we2.sendKeys("xyz1");
@@ -101,32 +99,43 @@ public class AddDetailsatPlaceOrder {
 				Thread.sleep(4000);
 				
 			     js.executeScript("window.scrollTo(0,400)");
-			     //click on cash delivery
+			   /*  //click on cash delivery
 			     WebElement button= driver.findElement(By.xpath("//*[@id=\"checkout-payment-method-load\"]/div/div/div[3]/div[1]/label"));
 			     button.click();
 			     Thread.sleep(4000);
 			     //click on CashOnDelivery button
 			     driver.findElement(By.xpath("//*[@id=\"checkout-payment-method-load\"]/div/div/div[3]/div[2]/div[4]/div/button")).click();
-			     
+			     */
+			  // click on pay with razor pay
+					driver.findElement(
+							By.xpath("//*[@id=\"checkout-payment-method-load\"]/div/div/div[2]/div[2]/div[4]/div/button")).click();
+					Thread.sleep(4000);
+					//move to payment page
+				     driver.switchTo().frame(0);
+				     Thread.sleep(2000);
+				     //select payment mode
+				     driver.findElement(By.xpath("//div[@class='methods-block']/div/button[3]/div/div")).click();
+				     //Thread.sleep(2000);
+				     driver.findElement(By.xpath("//div[@id='bank-item-UTIB']")).click();
+				     Thread.sleep(2000);
+				    String parentHandle= driver.getWindowHandle();
+				     System.out.println("Parent Window"+parentHandle);
+				     js.executeScript("window.scrollTo(0,100)");
+				     driver.findElement(By.xpath("//button[@id='redesign-v15-cta']")).click();
+				     Thread.sleep(4000);
+				     Set<String> handles= driver.getWindowHandles();
+				     for(String handle:handles) {
+				    	 System.out.println(handle);
+				    	 if(!handle.equals(parentHandle)) {
+				    		 driver.switchTo().window(handle);
+				    		 String a=driver.getTitle();
+				    		 System.out.print(a);
+				    		 driver.findElement(By.xpath("/html/body/form/button[1]")).click();	
+				    	 }
+				     }
 			} 
 		}
 
-	private void searchByKey(WebDriver driver, String searchKey) throws InterruptedException {
-		try {
-			WebElement element= driver.findElement(By.xpath("//*[@id=\"search\"]"));
-	        element.sendKeys(searchKey);
-	        Thread.sleep(2000);
-	        element.sendKeys(Keys.ENTER);
-			}
-			catch(Exception e)
-			{
-				System.out.println(e);
-				WebElement element= driver.findElement(By.xpath("//*[@id=\"search\"]"));
-		        element.sendKeys(searchKey);
-		        Thread.sleep(2000);
-		        element.sendKeys(Keys.ENTER);
-			}
-		
-	}
+	
 	}
 
